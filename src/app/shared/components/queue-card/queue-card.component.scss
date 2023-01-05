@@ -1,0 +1,22 @@
+@import "../../../../scss/variables.scss";
+
+.queue-card{
+}
+
+.queue-name, .queue-clients{
+
+  p{
+    font-weight: bold;
+    text-align: center;
+    padding: 7px;
+  }
+}
+
+.button-row{
+  display: flex;
+  justify-content: center;
+
+  button{
+    color: $redHighlightedText;
+  }
+}

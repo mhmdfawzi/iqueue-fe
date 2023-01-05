@@ -1,0 +1,44 @@
+
+.main{
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 3rem 4rem;
+  padding-bottom: 0;
+
+}
+
+
+.static-text{
+  font-weight: bold;
+  font-size: 50px;
+  text-align: center;
+  margin-top: 100px;
+}
+
+.clients-remaining{
+  margin-top: 50px;
+}
+
+button{
+  font-size: 22px;
+}
+
+// Mobile Styles
+
+.static-text-mob{
+  font-weight: bold;
+  font-size: 26px;
+  text-align: center;
+  margin-top: 100px;
+}
+
+.number-in-queue-mob{
+  font-size: 80px;
+  margin-bottom: 90px;
+}
+
+.estimation-time{
+  font-size: 20px;
+}

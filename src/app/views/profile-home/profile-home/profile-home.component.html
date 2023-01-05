@@ -1,0 +1,15 @@
+<div class="main padding-for-nav">
+  <!-- <div class="row user-info-bar">
+    <div class="col-4">
+      Welcome User
+    </div>
+  </div> -->
+
+  <div class="profile-holder">
+    <!-- Each component of profile-types should not be added to the DOM, unless one condition is met-->
+    <app-reserver-profile *ngIf="currentAccType === 'basic'"></app-reserver-profile>
+    <app-owner-profile *ngIf="currentAccType === 'owner'"></app-owner-profile>
+    <app-manager-profile *ngIf="currentAccType === 'manager'"></app-manager-profile>
+    <app-admin-profile *ngIf="currentAccType === 'admin'"></app-admin-profile>
+  </div>
+</div>

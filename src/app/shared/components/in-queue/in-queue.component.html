@@ -1,0 +1,39 @@
+<div class="main" *ngIf="!isMobile">
+
+  <div class="static-text">
+    <p >
+      Status : in queue
+    </p>
+
+    <p class="clients-remaining">
+      Clients remaining : 4
+    </p>
+
+    <p class="clients-remaining">
+      <button class="btn active-primary-btn" (click)="cancelQueue()">Cancel Queue</button>
+    </p>
+  </div>
+</div>
+
+<div class="main" *ngIf="isMobile">
+
+  <div class="static-text-mob">
+    <p class="number-in-queue-mob">{{reservationDetails?.no}}</p>
+    <p >
+      Status : in queue
+    </p>
+
+    <p class="clients-remaining">
+      Clients remaining : {{reservationDetails?.no - reservationDetails?.queue.nowServing}}
+    </p>
+
+    <p class="estimation-time">
+      Estimated Time : {{(reservationDetails?.no - reservationDetails?.queue.nowServing) * 15}} minutes.
+    </p>
+
+    <p class="clients-remaining">
+      <button class="btn active-primary-btn" (click)="cancelQueue()">Home</button>
+    </p>
+  </div>
+</div>
+
