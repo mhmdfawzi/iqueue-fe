@@ -18,6 +18,7 @@ import { LoginComponent } from './views/login/login.component';
 import { RegisterComponent } from './views/register/register.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProfileHomeComponent } from './views/profile-home/profile-home/profile-home.component';
+import { SlideMenuComponent } from './shared/components/slide-menu/slide-menu.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { ProfileHomeComponent } from './views/profile-home/profile-home/profile-
     DocumentsComponent,
     LoginComponent,
     RegisterComponent,
-    ProfileHomeComponent
+    ProfileHomeComponent,
+    SlideMenuComponent
   ],
   imports: [
     BrowserModule,
