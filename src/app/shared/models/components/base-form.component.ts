@@ -52,7 +52,7 @@ export class BaseFormComponent {
         console.log("Login Sub Response: ", res)
       })
     }else{
-      let regForm: RegisterForm = {...formData, role: "basic"}
+      let regForm: RegisterForm = {...formData, role: "basic", queue: null, serviceProvider: null}
       this.logServ.registerUser(regForm).subscribe( res => {
         console.log("Register Sub response :", res)
       })

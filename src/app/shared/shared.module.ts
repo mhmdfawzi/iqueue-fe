@@ -9,6 +9,9 @@ import { MatButtonModule } from '@angular/material/button';
 // Components >>
 import { LogFormComponent } from './log-form/log-form.component';
 import { BaseFormComponent } from './models/components/base-form.component';
+import { ServiceProviderCardComponent } from './components/service-provider-card/service-provider-card.component';
+import { InQueueComponent } from './components/in-queue/in-queue.component';
+import { QueueCardComponent } from './components/queue-card/queue-card.component';
 
 @NgModule({
   imports: [
@@ -22,7 +25,10 @@ import { BaseFormComponent } from './models/components/base-form.component';
 
   declarations: [
     LogFormComponent,
-    BaseFormComponent
+    BaseFormComponent,
+    ServiceProviderCardComponent,
+    InQueueComponent,
+    QueueCardComponent
   ],
 
   exports: [
@@ -31,7 +37,10 @@ import { BaseFormComponent } from './models/components/base-form.component';
     FormsModule,
 
     // Components >>
-    LogFormComponent
+    LogFormComponent,
+    ServiceProviderCardComponent,
+    InQueueComponent,
+    QueueCardComponent
   ],
 })
 export class SharedModule {}

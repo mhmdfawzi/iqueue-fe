@@ -1,11 +1,15 @@
+// Modules >>
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { ProfileHomeRoutingModule } from './profile-home-routing.module';
+
+// Components>>
 import { ProfileHomeComponent } from './profile-home/profile-home.component';
 import { ReserverProfileComponent } from './reserver-profile/reserver-profile.component';
 import { OwnerProfileComponent } from './owner-profile/owner-profile.component';
 import { ManagerProfileComponent } from './manager-profile/manager-profile.component';
+import { SharedModule } from 'src/app/shared/shared.module';
+import { AdminProfileComponent } from './admin-profile/admin-profile.component';
 
 
 @NgModule({
@@ -13,11 +17,13 @@ import { ManagerProfileComponent } from './manager-profile/manager-profile.compo
     ProfileHomeComponent,
     ReserverProfileComponent,
     OwnerProfileComponent,
-    ManagerProfileComponent
+    ManagerProfileComponent,
+    AdminProfileComponent
   ],
   imports: [
     CommonModule,
-    ProfileHomeRoutingModule
+    ProfileHomeRoutingModule,
+    SharedModule
   ]
 })
 export class ProfileHomeModule { }

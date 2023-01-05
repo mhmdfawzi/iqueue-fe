@@ -1,1 +1,9 @@
-<p>reserver-profile works!</p>
+<h3 class="intro-text">Here's a list of the available service providers :</h3>
+
+<div class="service-providers-holder">
+
+  <div class="service-provider-holder" *ngFor="let card of providers">
+    <app-service-provider-card [serviceProviderData]="card"></app-service-provider-card>
+  </div>
+
+</div>

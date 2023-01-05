@@ -8,9 +8,9 @@ import { CookieService } from 'ngx-cookie';
 })
 export class ProfileHomeComponent implements OnInit{
 
-  constructor(private cookieService: CookieService){
+  currentAccType: "basic" | "owner" | "admin" | "manager" = "owner"
 
-  }
+  constructor(private cookieService: CookieService){}
 
   ngOnInit(): void {
       this.logger()

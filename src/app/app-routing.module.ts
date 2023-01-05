@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { InQueueComponent } from './shared/components/in-queue/in-queue.component';
 import { AboutUsComponent } from './views/about-us/about-us.component';
 import { DocumentsComponent } from './views/documents/documents.component';
 import { HomeComponent } from './views/home/home.component';
@@ -19,6 +20,7 @@ const routes: Routes = [
   {path: "login", component: LoginComponent},
   {path: "about-us", component: AboutUsComponent},
   {path: "documents", component: DocumentsComponent},
+  {path: "in-queue", component: InQueueComponent},
   {path: "**", component: HomeComponent},
 ];
 

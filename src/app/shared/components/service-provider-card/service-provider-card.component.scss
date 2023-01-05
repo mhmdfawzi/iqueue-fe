@@ -1,0 +1,19 @@
+@import "../../../../scss/variables.scss";
+
+.sp-name{
+
+  p{
+    font-weight: bold;
+    text-align: center;
+    padding: 20px;
+  }
+}
+
+.button-row{
+  display: flex;
+  justify-content: center;
+
+  button{
+    color: $redHighlightedText;
+  }
+}
