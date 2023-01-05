@@ -1,6 +1,20 @@
-<p>manager-profile works!</p>
-<p class="text-center"><strong>a Queue should be put here << </strong></p>
-
-<div class="text-center">
-  <button class="btn active-primary-btn text-center">Next</button>
+<div class="next-btn">
+  <button class="btn active-primary-btn text-center" (click)="moveNext()">Move Next</button>
 </div>
+
+<div class="row reservation-row" *ngFor="let reservation of queueReservations" [ngClass]="{'active-row' : reservation.no === reservation.queue.nowServing}">
+  <div class="col">
+    # {{reservation.no}}
+  </div>
+
+  <div class="col">
+    Name: {{reservation.reserver.username}}
+  </div>
+
+  <div class="col">
+    Creation Time: {{reservation.createdAt | date:"dd, MMM hh:mm"}}
+  </div>
+</div>
+
+
+

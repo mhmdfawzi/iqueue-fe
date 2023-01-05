@@ -17,6 +17,7 @@ import { DocumentsComponent } from './views/documents/documents.component';
 import { LoginComponent } from './views/login/login.component';
 import { RegisterComponent } from './views/register/register.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ProfileHomeComponent } from './views/profile-home/profile-home/profile-home.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AboutUsComponent,
     DocumentsComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    ProfileHomeComponent
   ],
   imports: [
     BrowserModule,

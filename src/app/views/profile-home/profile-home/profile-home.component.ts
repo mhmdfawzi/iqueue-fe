@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CookieService } from 'ngx-cookie';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-profile-home',
@@ -8,16 +8,18 @@ import { CookieService } from 'ngx-cookie';
 })
 export class ProfileHomeComponent implements OnInit{
 
-  currentAccType: "basic" | "owner" | "admin" | "manager" = "owner"
+  // currentAccType: "basic" | "owner" | "admin" | "manager" = "basic"
+  currentAccType: string | null = "basic"
 
-  constructor(private cookieService: CookieService){}
+  constructor(private route: ActivatedRoute){}
 
   ngOnInit(): void {
-      this.logger()
+    console.log("ROUTE IS", this.route.snapshot.paramMap.get("userType"))
+    this.currentAccType = this.route.snapshot.paramMap.get("userType")
   }
 
-  logger(){
-    console.log("Cookie is :", this.cookieService.get('loggedUserType'))
-  }
+  // logger(){
+  //   console.log("Cookie is :", this.cookieService.get('loggedUserType'))
+  // }
 
 }

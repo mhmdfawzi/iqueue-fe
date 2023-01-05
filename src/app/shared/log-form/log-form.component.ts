@@ -29,4 +29,9 @@ export class LogFormComponent {
   navToHome(){
     this.router.navigate(["/"])
   }
+
+  viewAs(view: string){
+    this.router.navigate([`${view}/home`])
+
+  }
 }

@@ -16,5 +16,6 @@ export interface ServiceProviderData{
   },
   createdAt: string,
   address: string,
-  phone: number
+  phone: number,
+  queues: any
 }

@@ -21,8 +21,16 @@ export class ServiceProviderCardComponent implements OnInit {
     // this.profileService.reserve(request)
   }
 
-  reserve(){
-    this.router.navigate(["/in-queue"])
+  reserve(id: string){
+    let reservation = {
+      reserver: "63a8a91fae39e4c865dda6ff",
+      queue: id
+    }
+
+    this.profileService.reserve(reservation).subscribe(res => {
+      console.log(" Response of reserving ::", res )
+      this.router.navigate(["/in-queue"], {queryParams:{id: res.data._id}})
+    })
   }
 
 }

@@ -30,4 +30,14 @@ h2{
   font-size: $h2Size;
 }
 
+// Mobile Styles
 
+.content-mob{
+  h1{
+    font-size: 3rem;
+  }
+
+  h2{
+    font-size: 2.5rem;
+  }
+}

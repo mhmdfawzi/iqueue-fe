@@ -25,6 +25,13 @@
     <button type="button" mat-button class="cancel-btn" (click)="navToHome()">Cancel</button>
   </div>
 
+  <hr style="margin: 10px 0;"/>
+
+  <div class="button-row">
+    <button type="button" class="view-btn active-primary-btn" (click)="viewAs('basic')">{{btnActionText}} as Reserver</button>
+    <button type="button" class="view-btn active-primary-btn" (click)="viewAs('manager')">{{btnActionText}} as Manager</button>
+    <button type="button" class="view-btn active-primary-btn" (click)="viewAs('owner')">{{btnActionText}} as Owner</button>
+  </div>
 
   </form>
   </mat-card-content>

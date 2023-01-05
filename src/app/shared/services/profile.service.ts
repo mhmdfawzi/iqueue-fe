@@ -24,4 +24,8 @@ export class ProfileService {
     return this.generalService.postAPIData(`${environment.apiUrl}/reservations`, reserverData)
   }
 
+  reservationDetails(id: string){
+    return this.generalService.getAPIData(`${environment.apiUrl}/reservations/${id}`)
+  }
+
 }

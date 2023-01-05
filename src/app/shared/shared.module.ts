@@ -12,6 +12,10 @@ import { BaseFormComponent } from './models/components/base-form.component';
 import { ServiceProviderCardComponent } from './components/service-provider-card/service-provider-card.component';
 import { InQueueComponent } from './components/in-queue/in-queue.component';
 import { QueueCardComponent } from './components/queue-card/queue-card.component';
+import { AdminProfileComponent } from '../views/profile-home/admin-profile/admin-profile.component';
+import { ManagerProfileComponent } from '../views/profile-home/manager-profile/manager-profile.component';
+import { OwnerProfileComponent } from '../views/profile-home/owner-profile/owner-profile.component';
+import { ReserverProfileComponent } from '../views/profile-home/reserver-profile/reserver-profile.component';
 
 @NgModule({
   imports: [
@@ -28,7 +32,11 @@ import { QueueCardComponent } from './components/queue-card/queue-card.component
     BaseFormComponent,
     ServiceProviderCardComponent,
     InQueueComponent,
-    QueueCardComponent
+    QueueCardComponent,
+    ReserverProfileComponent,
+    OwnerProfileComponent,
+    ManagerProfileComponent,
+    AdminProfileComponent
   ],
 
   exports: [
@@ -40,7 +48,11 @@ import { QueueCardComponent } from './components/queue-card/queue-card.component
     LogFormComponent,
     ServiceProviderCardComponent,
     InQueueComponent,
-    QueueCardComponent
+    QueueCardComponent,
+    ReserverProfileComponent,
+    OwnerProfileComponent,
+    ManagerProfileComponent,
+    AdminProfileComponent
   ],
 })
 export class SharedModule {}

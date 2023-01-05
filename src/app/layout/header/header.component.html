@@ -1,8 +1,22 @@
-<header>
+<header *ngIf="!isMobile">
 
   <div class="intro-holder">
 
     <div class="content">
+      <h1 >Queue Portal</h1>
+      <h2>Get in queue before getting ready</h2>
+      <button class="btn active-primary-btn">Register</button>
+    </div>
+
+  </div>
+
+</header>
+
+<header *ngIf="isMobile">
+
+  <div class="intro-holder">
+
+    <div class="content content-mob">
       <h1>Queue Portal</h1>
       <h2>Get in queue before getting ready</h2>
       <button class="btn active-primary-btn">Register</button>

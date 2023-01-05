@@ -1,4 +1,4 @@
-<nav>
+<nav [ngStyle]="{'display': isMobile ? 'none' : 'block'}">
   <div class="row">
     <div class="col-4 logo-col">
       <a routerLink="/home">Logo</a>
@@ -8,9 +8,9 @@
       <a routerLink="/home">Home</a>
     </div>
 
-    <div class="col">
+    <!-- <div class="col">
       <a routerLink="/register">Register</a>
-    </div>
+    </div> -->
 
     <div class="col">
       <a routerLink="/login">login</a>
