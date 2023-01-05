@@ -14,7 +14,6 @@ export class NavbarComponent implements OnInit{
 
   ngOnInit(): void {
     this.isMobile = this.agentService.isAgentFromMobileDevice()
-    console.log("Is mobile ??", this.isMobile)
   }
 
 

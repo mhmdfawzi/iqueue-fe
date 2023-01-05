@@ -16,6 +16,7 @@ import { AdminProfileComponent } from '../views/profile-home/admin-profile/admin
 import { ManagerProfileComponent } from '../views/profile-home/manager-profile/manager-profile.component';
 import { OwnerProfileComponent } from '../views/profile-home/owner-profile/owner-profile.component';
 import { ReserverProfileComponent } from '../views/profile-home/reserver-profile/reserver-profile.component';
+import { SlideMenuComponent } from './components/slide-menu/slide-menu.component';
 
 @NgModule({
   imports: [
@@ -36,7 +37,7 @@ import { ReserverProfileComponent } from '../views/profile-home/reserver-profile
     ReserverProfileComponent,
     OwnerProfileComponent,
     ManagerProfileComponent,
-    AdminProfileComponent
+    AdminProfileComponent,
   ],
 
   exports: [
