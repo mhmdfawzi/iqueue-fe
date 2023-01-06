@@ -19,6 +19,7 @@ import { RegisterComponent } from './views/register/register.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProfileHomeComponent } from './views/profile-home/profile-home/profile-home.component';
 import { SlideMenuComponent } from './shared/components/slide-menu/slide-menu.component';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,10 @@ import { SlideMenuComponent } from './shared/components/slide-menu/slide-menu.co
     HttpClientModule,
     CookieModule.withOptions()
   ],
-  providers: [],
+  providers: [{
+    provide: LocationStrategy,
+    useClass: HashLocationStrategy,
+  },],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
