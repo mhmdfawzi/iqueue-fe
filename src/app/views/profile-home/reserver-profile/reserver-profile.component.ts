@@ -16,12 +16,14 @@ export class ReserverProfileComponent implements OnInit {
 
   providersSub!: Subscription;
 
+  serviceProvidersCategories: string[] = ['Category One 1', 'Category 2', 'Category 3', 'Category 3', 'Category 3']
   constructor(private profileService: ProfileService){}
 
   ngOnInit(): void {
     // this.serviceProviders$ = this.profileService.getProviders()
     this.providersSub = this.profileService.getProviders().subscribe(res => {
       this.providers = res.data
+      console.log(" the providers ! ::", res.data)
     }, err => {
       console.log("Got an err fetching the providers ! ::", err)
     })

@@ -1,0 +1,13 @@
+@import "../../../../scss/variables.scss";
+
+
+button{
+  width: 100%;
+  background-color: var(--roseDarkColor);
+  border: none;
+  padding: 25px 0px 25px 0px;
+  border-radius: var(--primaryBtnBorderRadius);
+  color: white;
+  font-weight: 500;
+  font-size: 16px;
+}

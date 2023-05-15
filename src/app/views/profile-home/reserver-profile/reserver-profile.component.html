@@ -1,4 +1,4 @@
-<h3 class="intro-text">Here's a list of the available service providers :</h3>
+<!-- <h3 class="intro-text">Here's a list of the available service providers :</h3>
 
 <div class="service-providers-holder">
 
@@ -6,4 +6,26 @@
     <app-service-provider-card [serviceProviderData]="card"></app-service-provider-card>
   </div>
 
+</div> -->
+
+<div class="main">
+  <div class="row icons-row">
+    <div class="col menu-col">=</div>
+  </div>
+
+  <p class="page-title">Check Service Providers</p>
+
+  <app-input [label]="'Search'" [placeholder]="'Search'"></app-input>
+
+  <div class="categories-row py-3">
+    <app-category-badge class="mx-3" *ngFor="let category of serviceProvidersCategories" [categoryName]="category"></app-category-badge>
+  </div>
+
+  <div class="service-providers-row">
+
+    <div class="service-provider-holder m-3" *ngFor="let card of providers; let i = index">
+      <app-service-provider-card [serviceProviderData]="card" [thumbnailId]="i"></app-service-provider-card>
+    </div>
+
+  </div>
 </div>

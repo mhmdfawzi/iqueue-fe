@@ -8,7 +8,7 @@ import { RegisterForm } from './../interfaces/form.model';
 @Component({
   selector: 'app-login',
   template: `
-  <div class="main padding-for-nav">
+  <div class="main">
   <app-log-form [introText]="introText" [btnActionText]="actionText" (formSubmission)="submitData($event)"></app-log-form>
 </div>
 `,

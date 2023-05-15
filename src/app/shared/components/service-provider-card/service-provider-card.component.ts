@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 })
 export class ServiceProviderCardComponent implements OnInit {
   @Input() serviceProviderData!: ServiceProviderData;
+  @Input() thumbnailId!: number;
 
   constructor(private profileService: ProfileService, private router: Router){}
 

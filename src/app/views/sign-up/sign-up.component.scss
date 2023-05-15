@@ -7,7 +7,7 @@
 
 .intro{
   // background-image: url('/assets/imgs/login.svg');
-  background-color: #B4D5E0;
+  background-color: #EECE91;
   height: 40vh;
   // background-size: contain;
   // background-repeat: no-repeat;
@@ -34,20 +34,6 @@
 .form{
   padding-top: 10%;
   height: 60vh;
-
-
-  .remember-row{
-    align-items: center;
-
-    .password-col{
-      text-align: right;
-      text-decoration: underline;
-
-      &:hover{
-        color: var(--taburGreyBiege) ;
-      }
-    }
-  }
 
   .actions-section{
     padding-bottom: 5%;

@@ -19,6 +19,8 @@ import { RegisterComponent } from './views/register/register.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProfileHomeComponent } from './views/profile-home/profile-home/profile-home.component';
 import { SlideMenuComponent } from './shared/components/slide-menu/slide-menu.component';
+import { TabsBarComponent } from './layout/tabs-bar/tabs-bar.component';
+import { SignUpComponent } from './views/sign-up/sign-up.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { SlideMenuComponent } from './shared/components/slide-menu/slide-menu.co
     LoginComponent,
     RegisterComponent,
     ProfileHomeComponent,
-    SlideMenuComponent
+    SlideMenuComponent,
+    TabsBarComponent,
+    SignUpComponent
   ],
   imports: [
     BrowserModule,
