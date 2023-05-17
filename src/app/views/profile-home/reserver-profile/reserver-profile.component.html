@@ -15,7 +15,7 @@
 
   <p class="page-title">Check Service Providers</p>
 
-  <app-input [label]="'Search'" [placeholder]="'Search'"></app-input>
+  <app-input [label]="'Search'" [placeholder]="'Search'" (currentText)="onSearchChange($event)"></app-input>
 
   <div class="categories-row py-3">
     <app-category-badge class="mx-3" *ngFor="let category of serviceProvidersCategories" [categoryName]="category"></app-category-badge>

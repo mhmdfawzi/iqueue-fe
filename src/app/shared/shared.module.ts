@@ -6,10 +6,10 @@ import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatIconModule } from "@angular/material/icon";
 
 // Components >>
 import { LogFormComponent } from './log-form/log-form.component';
-import { BaseFormComponent } from './models/components/base-form.component';
 import { ServiceProviderCardComponent } from './components/service-provider-card/service-provider-card.component';
 import { InQueueComponent } from './components/in-queue/in-queue.component';
 import { QueueCardComponent } from './components/queue-card/queue-card.component';
@@ -20,6 +20,7 @@ import { ReserverProfileComponent } from '../views/profile-home/reserver-profile
 import { InputComponent } from './components/input/input.component';
 import { WideButtonComponent } from './components/wide-button/wide-button.component';
 import { CategoryBadgeComponent } from './components/category-badge/category-badge.component';
+import { SmallButtonComponent } from './components/small-button/small-button.component';
 
 @NgModule({
   imports: [
@@ -29,12 +30,12 @@ import { CategoryBadgeComponent } from './components/category-badge/category-bad
     MatCardModule,
     MatInputModule,
     MatButtonModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatIconModule
   ],
 
   declarations: [
     LogFormComponent,
-    BaseFormComponent,
     ServiceProviderCardComponent,
     InQueueComponent,
     QueueCardComponent,
@@ -45,6 +46,7 @@ import { CategoryBadgeComponent } from './components/category-badge/category-bad
     InputComponent,
     WideButtonComponent,
     CategoryBadgeComponent,
+    SmallButtonComponent,
 
   ],
 
@@ -54,6 +56,7 @@ import { CategoryBadgeComponent } from './components/category-badge/category-bad
     FormsModule,
     MatCheckboxModule,
     ReactiveFormsModule,
+    MatIconModule,
 
     // Components >>
     LogFormComponent,
@@ -67,6 +70,7 @@ import { CategoryBadgeComponent } from './components/category-badge/category-bad
     InputComponent,
     WideButtonComponent,
     CategoryBadgeComponent,
+    SmallButtonComponent,
 
   ],
 })

@@ -1,4 +1,4 @@
 <mat-form-field class="example-full-width">
   <mat-label>{{label}}</mat-label>
-  <input matInput placeholder="{{placeholder}}" [type]="type" (input)="onValueChange(inp.value)" #inp (click)="markAsTouched()">
+  <input matInput placeholder="{{placeholder}}" [type]="type" (input)="onValueChange(inp.value); sendInputTextToParent(inp.value)" #inp (click)="markAsTouched()">
 </mat-form-field>

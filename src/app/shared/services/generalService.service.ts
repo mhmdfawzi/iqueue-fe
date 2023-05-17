@@ -29,11 +29,11 @@ export class GeneralService {
     return this.http.get(apiUrl).pipe(catchError((err) => this.errorHandler(err)))
   }
 
-  postAPIData(apiUrl: string, payload?: any): Observable<any>{
+  postAPIData(apiUrl: string, payload: any): Observable<any>{
     return this.http.post(apiUrl, payload).pipe(catchError((err) => this.errorHandler(err)))
   }
 
-  putAPIData(apiUrl: string, payload?: any): Observable<any>{
+  putAPIData(apiUrl: string, payload: any): Observable<any>{
     return this.http.put(apiUrl, payload).pipe(catchError((err) => this.errorHandler(err)))
   }
 

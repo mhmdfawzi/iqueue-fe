@@ -18,7 +18,7 @@ export class QueueManagerService {
   }
 
   moveQueue(id: string){
-    return this.generalService.putAPIData(`${environment.apiUrl}/queues/moveNext/${id}`)
+    return this.generalService.putAPIData(`${environment.apiUrl}/queues/moveNext/${id}`, {})
   }
 
 }

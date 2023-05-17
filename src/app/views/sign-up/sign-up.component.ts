@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { RegisterForm } from 'src/app/shared/models/interfaces/form.model';
-import { LogRegisterService } from 'src/app/shared/services/log-register.service';
+import { AuthService } from 'src/app/shared/services/auth.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -15,8 +15,7 @@ export class SignUpComponent implements OnInit {
 
   constructor(
     router: Router,
-    // cookieService: CookieService,
-    private logServ: LogRegisterService
+    private authService: AuthService
   ){}
 
   ngOnInit(): void {
@@ -42,7 +41,7 @@ export class SignUpComponent implements OnInit {
 
     console.log("The form data is :", formData);
 
-    this.logServ.registerUser(formData).subscribe(res => {
+    this.authService.registerUser(formData).subscribe(res => {
       console.log("Register Sub Response: ", res)
     }, err => {
       console.log("Got an error on registration", err)

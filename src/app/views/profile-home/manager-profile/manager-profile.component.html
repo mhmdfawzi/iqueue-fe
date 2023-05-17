@@ -1,20 +1,8 @@
 <div class="next-btn">
-  <button class="btn active-primary-btn text-center" (click)="moveNext()">Move Next</button>
+  <app-small-button [txt]="'Push Queue'" (btnClicked)="moveNext()"></app-small-button>
 </div>
 
-<div class="row reservation-row" *ngFor="let reservation of queueReservations" [ngClass]="{'active-row' : reservation.no === reservation.queue.nowServing}">
-  <div class="col">
-    # {{reservation.no}}
-  </div>
-
-  <div class="col">
-    Name: {{reservation.reserver.username}}
-  </div>
-
-  <div class="col">
-    Creation Time: {{reservation.createdAt | date:"dd, MMM hh:mm"}}
-  </div>
+<div class="row reservation-row m-3" *ngFor="let reservation of queueReservations" [ngClass]="{'active-row' : reservation.no === reservation.queue.nowServing}">
+  <p class="num-p"><mat-icon>account_box</mat-icon> # {{reservation.no}} - {{reservation.reserver.username}}</p>
+  <p class="creation-p">Creation Time: {{reservation.createdAt | date:"dd, MMM hh:mm"}}</p>
 </div>
-
-
-

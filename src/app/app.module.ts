@@ -15,7 +15,6 @@ import { NavbarComponent } from './layout/navbar/navbar.component';
 import { AboutUsComponent } from './views/about-us/about-us.component';
 import { DocumentsComponent } from './views/documents/documents.component';
 import { LoginComponent } from './views/login/login.component';
-import { RegisterComponent } from './views/register/register.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProfileHomeComponent } from './views/profile-home/profile-home/profile-home.component';
 import { SlideMenuComponent } from './shared/components/slide-menu/slide-menu.component';
@@ -32,7 +31,6 @@ import { SignUpComponent } from './views/sign-up/sign-up.component';
     AboutUsComponent,
     DocumentsComponent,
     LoginComponent,
-    RegisterComponent,
     ProfileHomeComponent,
     SlideMenuComponent,
     TabsBarComponent,

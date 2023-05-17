@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ServiceProviderData } from '../../models/interfaces/sp.model';
+import { ServiceProvider } from '../../models/interfaces/sp.model';
 import { ProfileService } from '../../services/profile.service';
 import { Reserver, ReserveRequest } from './../../models/interfaces/customer.model';
 import { Router } from '@angular/router';
@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./service-provider-card.component.scss']
 })
 export class ServiceProviderCardComponent implements OnInit {
-  @Input() serviceProviderData!: ServiceProviderData;
+  @Input() serviceProviderData!: ServiceProvider;
   @Input() thumbnailId!: number;
 
   constructor(private profileService: ProfileService, private router: Router){}
