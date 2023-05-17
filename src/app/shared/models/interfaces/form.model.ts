@@ -15,7 +15,7 @@ interface Form {
 export interface LoginForm extends Form{}
 
 export interface RegisterForm extends Form{
-  role: "basic" | "manager" | "owner" | "admin",
-  queue: null,
-  serviceProvider: null,
+  role?: "basic" | "manager" | "owner" | "admin",
+  queue?: null,
+  serviceProvider?: null,
 }

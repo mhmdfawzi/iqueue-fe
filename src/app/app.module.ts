@@ -3,7 +3,8 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/shared.module';
-import { CookieModule } from 'ngx-cookie';
+// import { CookieModule } from 'ngx-cookie';
+import {CookieService} from 'ngx-cookie-service';
 import { HttpClientModule } from '@angular/common/http';
 
 // Components >>
@@ -42,9 +43,9 @@ import { SignUpComponent } from './views/sign-up/sign-up.component';
     SharedModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    CookieModule.withOptions()
+    // CookieModule.withOptions()
   ],
-  providers: [],
+  providers: [CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

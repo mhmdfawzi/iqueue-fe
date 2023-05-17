@@ -5,6 +5,7 @@
 
 export const environment = {
   production: false,
-  apiUrl:  "https://iqueue-be-production.up.railway.app/api"
+  apiUrl:  "https://iqueue-be-production.up.railway.app/api",
+  apiUrlAuth:  "https://iqueue-be-production.up.railway.app/api/auth"
 
 };
