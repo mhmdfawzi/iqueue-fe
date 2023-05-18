@@ -40,6 +40,7 @@ export class LoginComponent implements OnInit { //extends BaseFormComponent
     this.authService.loginUser(formData).subscribe((res) => {
 
       console.log("Login Sub Response: ", res)
+      this.authService.handleSuccessfulLogin(res.data)
       // this.authService.handleSuccessfulLogin(res.data);
 
     }, err => { // TODO Handle the FAIL to LOGIN scenario ! (Show err msg or toaster)

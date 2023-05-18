@@ -22,7 +22,7 @@ export class InQueueComponent implements OnInit{
 
     this.id = this.route.snapshot.queryParams["id"]
 
-    this.profileService.reservationDetails(this.id).subscribe(res => {
+    this.profileService.reservationDetails(this.id).subscribe((res:any) => {
       console.log("response of reservation details :  ", res)
       this.reservationDetails = res.data
     })

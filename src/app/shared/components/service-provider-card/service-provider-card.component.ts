@@ -3,6 +3,7 @@ import { ServiceProvider } from '../../models/interfaces/sp.model';
 import { ProfileService } from '../../services/profile.service';
 import { Reserver, ReserveRequest } from './../../models/interfaces/customer.model';
 import { Router } from '@angular/router';
+// import { AuthService } from '../../services/auth-services/auth.service';
 
 @Component({
   selector: 'app-service-provider-card',
@@ -28,7 +29,7 @@ export class ServiceProviderCardComponent implements OnInit {
       queue: id
     }
 
-    this.profileService.reserve(reservation).subscribe(res => {
+    this.profileService.reserve(reservation).subscribe((res:any) => {
       console.log(" Response of reserving ::", res )
       this.router.navigate(["/in-queue"], {queryParams:{id: res.data._id}})
     })

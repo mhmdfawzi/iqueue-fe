@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ProfileService } from 'src/app/shared/services/profile.service';
 import { Observable, Subscription } from 'rxjs';
 import { ServiceProvider } from 'src/app/shared/models/interfaces/sp.model';
+import { LoggedUser } from 'src/app/shared/services/auth-services/auth.service';
 
 @Component({
   selector: 'app-reserver-profile',
@@ -11,6 +12,7 @@ import { ServiceProvider } from 'src/app/shared/models/interfaces/sp.model';
 export class ReserverProfileComponent implements OnInit {
 
   // public serviceProviders$!: Observable<any[]>;
+  @Input() loggedInUser!: LoggedUser;
 
   providers!: ServiceProvider[];
   allProviders!: ServiceProvider[];
@@ -22,7 +24,7 @@ export class ReserverProfileComponent implements OnInit {
 
   ngOnInit(): void {
     // this.serviceProviders$ = this.profileService.getProviders()
-    this.providersSub = this.profileService.getProviders().subscribe(res => {
+    this.providersSub = this.profileService.getProviders().subscribe((res:any) => {
       this.providers = res.data
       this.allProviders = res.data
 

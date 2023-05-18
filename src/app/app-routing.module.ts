@@ -7,6 +7,7 @@ import { HomeComponent } from './views/home/home.component';
 import { LoginComponent } from './views/login/login.component';
 import { ProfileHomeComponent } from './views/profile-home/profile-home/profile-home.component';
 import { SignUpComponent } from './views/sign-up/sign-up.component';
+import { AuthGuardService } from './shared/services/guards/auth-guard.service';
 
 const routes: Routes = [
   {path: "", component: HomeComponent},
@@ -18,7 +19,7 @@ const routes: Routes = [
   //   )
   // },
 
-  {path: ":userType/home", component: ProfileHomeComponent},
+  {path: "home", component: ProfileHomeComponent, canActivate: [AuthGuardService]},
 
   {path: "login", component: LoginComponent},
   {path: "sign-up", component: SignUpComponent},

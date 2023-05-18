@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ServiceProvider } from 'src/app/shared/models/interfaces/sp.model';
+import { LoggedUser } from 'src/app/shared/services/auth-services/auth.service';
 
 @Component({
   selector: 'app-owner-profile',
@@ -8,6 +9,7 @@ import { ServiceProvider } from 'src/app/shared/models/interfaces/sp.model';
 })
 export class OwnerProfileComponent implements OnInit{
 
+  @Input() loggedInUser!: LoggedUser;
 
   serviceProvider!: ServiceProvider;
 

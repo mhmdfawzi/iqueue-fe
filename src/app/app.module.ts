@@ -3,9 +3,8 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/shared.module';
-// import { CookieModule } from 'ngx-cookie';
-import {CookieService} from 'ngx-cookie-service';
-import { HttpClientModule } from '@angular/common/http';
+// import {CookieService} from 'ngx-cookie-service';
+import { HttpClientModule , HTTP_INTERCEPTORS} from '@angular/common/http';
 
 // Components >>
 import { AppComponent } from './app.component';
@@ -21,6 +20,10 @@ import { ProfileHomeComponent } from './views/profile-home/profile-home/profile-
 import { SlideMenuComponent } from './shared/components/slide-menu/slide-menu.component';
 import { TabsBarComponent } from './layout/tabs-bar/tabs-bar.component';
 import { SignUpComponent } from './views/sign-up/sign-up.component';
+
+// Interceptors
+import { HttpInterceptorService } from './shared/services/HttpInterceptors/http-interceptor.service';
+import { AuthGuardService } from './shared/services/guards/auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -45,7 +48,7 @@ import { SignUpComponent } from './views/sign-up/sign-up.component';
     HttpClientModule,
     // CookieModule.withOptions()
   ],
-  providers: [CookieService],
+  providers: [{provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true}, AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

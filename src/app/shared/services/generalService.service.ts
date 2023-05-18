@@ -25,20 +25,24 @@ export class GeneralService {
     // private _cookieService: CookieService,
   ) {}
 
-  getAPIData<T>(apiUrl: string): Observable<HttpResponse<T>>{
-    return this.http.get<HttpResponse<T>>(apiUrl).pipe(catchError((err) => this.errorHandler(err)))
+  getAPIData<T>(apiUrl: string): Observable<T>{
+    return this.http.get<T>(apiUrl).pipe(catchError((err) => this.errorHandler(err)))
   }
 
-  postAPIData<T>(apiUrl: string, payload: any): Observable<HttpResponse<T>>{
-    return this.http.post<HttpResponse<T>>(apiUrl, payload).pipe(catchError((err) => this.errorHandler(err)))
+  postAPIData<T>(apiUrl: string, payload: any): Observable<T>{
+    return this.http.post<T>(apiUrl, payload).pipe(catchError((err) => this.errorHandler(err)))
   }
 
-  putAPIData<T>(apiUrl: string, payload: any): Observable<HttpResponse<T>>{
-    return this.http.put<HttpResponse<T>>(apiUrl, payload).pipe(catchError((err) => this.errorHandler(err)))
+  // postAPIData<T>(apiUrl: string, payload: any){
+  //   return this.http.post(apiUrl, payload, {observe: 'response'}).pipe(catchError((err) => this.errorHandler(err)))
+  // }
+
+  putAPIData<T>(apiUrl: string, payload: any): Observable<T>{
+    return this.http.put<T>(apiUrl, payload).pipe(catchError((err) => this.errorHandler(err)))
   }
 
-  deleteAPIData<T>(apiUrl: string): Observable<HttpResponse<T>>{
-    return this.http.delete<HttpResponse<T>>(apiUrl).pipe(catchError((err) => this.errorHandler(err)))
+  deleteAPIData<T>(apiUrl: string): Observable<T>{
+    return this.http.delete<T>(apiUrl).pipe(catchError((err) => this.errorHandler(err)))
   }
 
 

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { LoggedUser } from 'src/app/shared/services/auth-services/auth.service';
 import { QueueManagerService } from 'src/app/shared/services/queue-manager.service';
 
 @Component({
@@ -7,6 +8,8 @@ import { QueueManagerService } from 'src/app/shared/services/queue-manager.servi
   styleUrls: ['./manager-profile.component.scss']
 })
 export class ManagerProfileComponent implements OnInit {
+
+  @Input() loggedInUser!: LoggedUser;
 
   constructor(private qManager: QueueManagerService){}
 
@@ -18,7 +21,7 @@ export class ManagerProfileComponent implements OnInit {
   }
 
   callQueueReservations(){
-    this.qManager.getQueueReservations(this.queueId).subscribe(res => {
+    this.qManager.getQueueReservations(this.queueId).subscribe((res:any) => {
       console.log("Reservation QUEUE :", res)
       this.queueReservations = res.data
     })
