@@ -9,7 +9,6 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatIconModule } from "@angular/material/icon";
 
 // Components >>
-import { LogFormComponent } from './log-form/log-form.component';
 import { ServiceProviderCardComponent } from './components/service-provider-card/service-provider-card.component';
 import { InQueueComponent } from './components/in-queue/in-queue.component';
 import { QueueCardComponent } from './components/queue-card/queue-card.component';
@@ -35,7 +34,6 @@ import { SmallButtonComponent } from './components/small-button/small-button.com
   ],
 
   declarations: [
-    LogFormComponent,
     ServiceProviderCardComponent,
     InQueueComponent,
     QueueCardComponent,
@@ -59,7 +57,6 @@ import { SmallButtonComponent } from './components/small-button/small-button.com
     MatIconModule,
 
     // Components >>
-    LogFormComponent,
     ServiceProviderCardComponent,
     InQueueComponent,
     QueueCardComponent,

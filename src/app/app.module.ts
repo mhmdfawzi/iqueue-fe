@@ -9,8 +9,6 @@ import { HttpClientModule , HTTP_INTERCEPTORS} from '@angular/common/http';
 // Components >>
 import { AppComponent } from './app.component';
 import { HomeComponent } from './views/home/home.component';
-import { HeaderComponent } from './layout/header/header.component';
-import { FooterComponent } from './layout/footer/footer.component';
 import { NavbarComponent } from './layout/navbar/navbar.component';
 import { AboutUsComponent } from './views/about-us/about-us.component';
 import { DocumentsComponent } from './views/documents/documents.component';
@@ -29,8 +27,6 @@ import { AuthGuardService } from './shared/services/guards/auth-guard.service';
   declarations: [
     AppComponent,
     HomeComponent,
-    HeaderComponent,
-    FooterComponent,
     NavbarComponent,
     AboutUsComponent,
     DocumentsComponent,
