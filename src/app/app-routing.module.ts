@@ -11,21 +11,10 @@ import { AuthGuardService } from './shared/services/guards/auth-guard.service';
 
 const routes: Routes = [
   {path: "", component: HomeComponent},
-  // {path: "reserve",
-
-  //   loadChildren: () =>
-  //   import("./views/profile-home/profile-home.module").then(
-  //     (m) => m.ProfileHomeModule
-  //   )
-  // },
-
   {path: "home", component: ProfileHomeComponent, canActivate: [AuthGuardService]},
-
   {path: "login", component: LoginComponent},
   {path: "sign-up", component: SignUpComponent},
-  {path: "about-us", component: AboutUsComponent},
-  {path: "documents", component: DocumentsComponent},
-  {path: "in-queue", component: InQueueComponent},
+  {path: "in-queue", component: InQueueComponent, canActivate: [AuthGuardService]},
   {path: "**", component: HomeComponent},
 ];
 

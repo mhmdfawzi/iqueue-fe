@@ -3,8 +3,9 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/shared.module';
-// import {CookieService} from 'ngx-cookie-service';
+import { MatSidenavModule } from '@angular/material/sidenav';
 import { HttpClientModule , HTTP_INTERCEPTORS} from '@angular/common/http';
+// import {CookieService} from 'ngx-cookie-service';
 
 // Components >>
 import { AppComponent } from './app.component';
@@ -42,6 +43,7 @@ import { AuthGuardService } from './shared/services/guards/auth-guard.service';
     SharedModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    MatSidenavModule
     // CookieModule.withOptions()
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true}, AuthGuardService],

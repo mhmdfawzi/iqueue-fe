@@ -1,28 +1,9 @@
-// @import "../../../scss/variables.scss";
+.tabur-navbar{
+  font-size: 20px;
+  font-weight: 500;
+  padding: 20px 0px;
+}
 
-// nav{
-//   position: absolute;
-//   width: 100%;
-//   padding-top: 12px;
-
-// }
-
-// .row{
-//   padding: 0;
-//   margin: 0;
-// }
-
-// a{
-//   color: var(--secondaryColor);
-//   // color: $primaryColor;
-//   text-decoration: none;
-//   font-size: 1.5rem;
-
-//   &:hover{
-//     filter: brightness(80%);
-//   }
-// }
-
-// .logo-col{
-//   padding-left: 4rem;
-// }
+mat-icon{
+  background-color: var(--taburGreyLemonLight);
+}

@@ -2,7 +2,35 @@
 <div class="container-fluid">
 </div> -->
 
-<router-outlet></router-outlet>
+
+
+<mat-drawer-container class="example-container" autosize>
+  <mat-drawer #drawer class="example-sidenav" mode="over">
+
+    <!-- Here you can put the content of the slider or drawer -->
+
+    <div class="tabur-drawer-list">
+      <p class="route-item" *ngFor="let routeItem of appRoutes" (click)="drawer.close(); navigate(routeItem.route)"><mat-icon>{{routeItem.icon}}</mat-icon> <span>{{routeItem.caption}}</span> </p>
+
+      <!-- <button (click)="drawer.close()" mat-raised-button>
+        <app-circle-button [txt]="'<<'"></app-circle-button>
+      </button> -->
+    </div>
+
+  </mat-drawer>
+
+  <div class="example-sidenav-content">
+    <!-- Here you can put the content of the view -->
+
+    <div class="main" [ngClass]="{'main' : addClassMain}">
+      <app-navbar *ngIf="showNav" (menuClicked)="drawer.toggle()" [title]="navbarTitle"></app-navbar>
+      <router-outlet></router-outlet>
+    </div>
+
+  </div>
+
+</mat-drawer-container>
+
 <!-- <div class="menu-btn">
   <button class="btn inactive-primary-btn" (click)="menuBtnClicked()">menu</button>
 </div>

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AgentService } from '../../services/agent.service';
-import { ProfileService } from './../../services/profile.service';
+import { ProfileService, ReservationResponse } from './../../services/profile.service';
+import { ReservationDetails } from '../../models/interfaces/queue.model';
 
 @Component({
   selector: 'app-in-queue',
@@ -11,18 +12,18 @@ import { ProfileService } from './../../services/profile.service';
 export class InQueueComponent implements OnInit{
 
   isMobile: boolean = false;
-  id!: string;
+  reservationId!: string; // sent in query params in service provider card
 
-  reservationDetails: any;
+  reservationDetails!: ReservationDetails;
 
   constructor(private agentService: AgentService, private router: Router, private route: ActivatedRoute, private profileService: ProfileService){}
 
   ngOnInit(): void {
     this.isMobile = this.agentService.isAgentFromMobileDevice()
 
-    this.id = this.route.snapshot.queryParams["id"]
+    this.reservationId = this.route.snapshot.queryParams["reservationId"]
 
-    this.profileService.reservationDetails(this.id).subscribe((res:any) => {
+    this.profileService.reservationDetails(this.reservationId).subscribe((res:ReservationResponse) => {
       console.log("response of reservation details :  ", res)
       this.reservationDetails = res.data
     })

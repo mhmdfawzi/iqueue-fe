@@ -20,6 +20,7 @@ import { InputComponent } from './components/input/input.component';
 import { WideButtonComponent } from './components/wide-button/wide-button.component';
 import { CategoryBadgeComponent } from './components/category-badge/category-badge.component';
 import { SmallButtonComponent } from './components/small-button/small-button.component';
+import { CircleButtonComponent } from './components/circle-button/circle-button.component';
 
 @NgModule({
   imports: [
@@ -45,6 +46,7 @@ import { SmallButtonComponent } from './components/small-button/small-button.com
     WideButtonComponent,
     CategoryBadgeComponent,
     SmallButtonComponent,
+    CircleButtonComponent,
 
   ],
 
@@ -68,6 +70,7 @@ import { SmallButtonComponent } from './components/small-button/small-button.com
     WideButtonComponent,
     CategoryBadgeComponent,
     SmallButtonComponent,
+    CircleButtonComponent,
 
   ],
 })

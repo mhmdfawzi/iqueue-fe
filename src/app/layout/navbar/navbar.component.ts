@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { AgentService } from 'src/app/shared/services/agent.service';
 
 @Component({
@@ -7,6 +7,9 @@ import { AgentService } from 'src/app/shared/services/agent.service';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit{
+
+  @Output() menuClicked: EventEmitter<any> = new EventEmitter();
+  @Input() title: string = "";
 
   isMobile: boolean = false;
 
@@ -17,5 +20,8 @@ export class NavbarComponent implements OnInit{
   }
 
 
+  clickMenu(){
+    this.menuClicked.emit();
+  }
 
 }
