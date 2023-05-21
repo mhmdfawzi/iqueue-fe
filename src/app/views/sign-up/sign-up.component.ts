@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { RegisterForm } from 'src/app/shared/models/interfaces/form.model';
-import { AuthService } from 'src/app/shared/services/auth.service';
+import { AuthService } from 'src/app/shared/services/auth-services/auth.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -34,7 +34,6 @@ export class SignUpComponent implements OnInit {
     let formData: RegisterForm = {
       username: this.registerForm.get('username')?.value,
       password: this.registerForm.get('password')?.value,
-      role: 'basic',
       queue: null,
       serviceProvider: null
     };

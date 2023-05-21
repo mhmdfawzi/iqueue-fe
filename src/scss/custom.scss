@@ -1,5 +1,12 @@
 @import "./variables.scss";
 
+.main{
+  background-color: var(--bgColor);
+  color: var(--textColor);
+  height: 100vh;
+  padding: 10px;
+}
+
 // Styles for Global buttons::
 
 // @mixin btnStyler($bgColor) {

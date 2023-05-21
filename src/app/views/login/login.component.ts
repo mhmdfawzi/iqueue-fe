@@ -3,7 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 // import { BaseFormComponent } from 'src/app/shared/models/components/base-form.component';
 import { Router } from '@angular/router';
 import { LoginForm } from 'src/app/shared/models/interfaces/form.model';
-import { AuthService } from 'src/app/shared/services/auth.service';
+import { AuthService, ResponseLogin } from 'src/app/shared/services/auth-services/auth.service';
 // import { CookieService } from 'ngx-cookie';
 
 @Component({
@@ -37,9 +37,13 @@ export class LoginComponent implements OnInit { //extends BaseFormComponent
 
     console.log("The form data is :", formData);
 
-    this.authService.loginUser(formData).subscribe(res => {
+    this.authService.loginUser(formData).subscribe((res) => {
+
       console.log("Login Sub Response: ", res)
-    }, err => {
+      this.authService.handleSuccessfulLogin(res.data)
+      // this.authService.handleSuccessfulLogin(res.data);
+
+    }, err => { // TODO Handle the FAIL to LOGIN scenario ! (Show err msg or toaster)
       console.log("Got an error on Login", err)
     })
   }

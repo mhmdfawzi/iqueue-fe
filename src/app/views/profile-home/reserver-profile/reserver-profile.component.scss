@@ -32,7 +32,10 @@
 .categories-row, .service-providers-row{
   overflow-x: scroll;
   white-space: nowrap;
+}
 
+.service-providers-row{
+  margin-top: 30px;
 }
 
 .service-provider-holder{

@@ -3,14 +3,13 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/shared.module';
-import { CookieModule } from 'ngx-cookie';
-import { HttpClientModule } from '@angular/common/http';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { HttpClientModule , HTTP_INTERCEPTORS} from '@angular/common/http';
+// import {CookieService} from 'ngx-cookie-service';
 
 // Components >>
 import { AppComponent } from './app.component';
 import { HomeComponent } from './views/home/home.component';
-import { HeaderComponent } from './layout/header/header.component';
-import { FooterComponent } from './layout/footer/footer.component';
 import { NavbarComponent } from './layout/navbar/navbar.component';
 import { AboutUsComponent } from './views/about-us/about-us.component';
 import { DocumentsComponent } from './views/documents/documents.component';
@@ -21,12 +20,14 @@ import { SlideMenuComponent } from './shared/components/slide-menu/slide-menu.co
 import { TabsBarComponent } from './layout/tabs-bar/tabs-bar.component';
 import { SignUpComponent } from './views/sign-up/sign-up.component';
 
+// Interceptors
+import { HttpInterceptorService } from './shared/services/HttpInterceptors/http-interceptor.service';
+import { AuthGuardService } from './shared/services/guards/auth-guard.service';
+
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    HeaderComponent,
-    FooterComponent,
     NavbarComponent,
     AboutUsComponent,
     DocumentsComponent,
@@ -42,9 +43,10 @@ import { SignUpComponent } from './views/sign-up/sign-up.component';
     SharedModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    CookieModule.withOptions()
+    MatSidenavModule
+    // CookieModule.withOptions()
   ],
-  providers: [],
+  providers: [{provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true}, AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

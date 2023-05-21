@@ -8,11 +8,7 @@
 
 </div> -->
 
-<div class="main">
-  <div class="row icons-row">
-    <div class="col menu-col">=</div>
-  </div>
-
+<div>
   <p class="page-title">Check Service Providers</p>
 
   <app-input [label]="'Search'" [placeholder]="'Search'" (currentText)="onSearchChange($event)"></app-input>
@@ -24,7 +20,7 @@
   <div class="service-providers-row">
 
     <div class="service-provider-holder m-3" *ngFor="let card of providers; let i = index">
-      <app-service-provider-card [serviceProviderData]="card" [thumbnailId]="i"></app-service-provider-card>
+      <app-service-provider-card [serviceProviderData]="card" [thumbnailId]="i" [loggedInUser]="loggedInUser"></app-service-provider-card>
     </div>
 
   </div>

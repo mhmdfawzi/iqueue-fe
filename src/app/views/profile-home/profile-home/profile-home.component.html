@@ -1,4 +1,4 @@
-<div class="main">
+<div class="">
   <!-- <div class="row user-info-bar">
     <div class="col-4">
       Welcome User
@@ -7,9 +7,9 @@
 
   <div class="profile-holder">
     <!-- Each component of profile-types should not be added to the DOM, unless one condition is met-->
-    <app-reserver-profile *ngIf="currentAccType === 'basic'"></app-reserver-profile>
-    <app-owner-profile *ngIf="currentAccType === 'owner'"></app-owner-profile>
-    <app-manager-profile *ngIf="currentAccType === 'manager'"></app-manager-profile>
-    <app-admin-profile *ngIf="currentAccType === 'admin'"></app-admin-profile>
+    <app-reserver-profile *ngIf="loggedInUser.role === 'basic'" [loggedInUser]="loggedInUser"></app-reserver-profile>
+    <app-owner-profile *ngIf="loggedInUser.role === 'owner'" [loggedInUser]="loggedInUser"></app-owner-profile>
+    <app-manager-profile *ngIf="loggedInUser.role === 'manager'" [loggedInUser]="loggedInUser"></app-manager-profile>
+    <app-admin-profile *ngIf="loggedInUser.role === 'admin'" [loggedInUser]="loggedInUser"></app-admin-profile>
   </div>
 </div>

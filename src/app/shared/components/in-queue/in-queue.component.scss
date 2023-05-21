@@ -17,10 +17,6 @@
   margin-top: 100px;
 }
 
-.clients-remaining{
-  margin-top: 50px;
-}
-
 button{
   font-size: 22px;
 }
@@ -31,14 +27,26 @@ button{
   font-weight: bold;
   font-size: 26px;
   text-align: center;
-  margin-top: 100px;
+  margin-top: 35px;
+  padding-top: 35px;
+  padding-bottom: 20px;
+
+  display: flex;
+  flex-direction: column;
+  height: 50vh;
+  border-radius: var(--mainBorderRadius);
+  background-color: var(--taburGreyLemonLight);
+
+  justify-content: space-between;
 }
 
 .number-in-queue-mob{
-  font-size: 80px;
-  margin-bottom: 90px;
+  font-size: var(--bigTitleSize);
+  margin-bottom: 20px;
 }
 
-.estimation-time{
-  font-size: 20px;
+.clients-remaining, .estimation-time{
+  color: var(--taburGrey);
+  // font-size: var(--secondaryTitleSize);
+  font-size: 17px;
 }

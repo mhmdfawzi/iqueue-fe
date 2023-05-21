@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { LoggedUser } from 'src/app/shared/services/auth-services/auth.service';
 
 @Component({
   selector: 'app-admin-profile',
@@ -6,5 +7,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./admin-profile.component.scss']
 })
 export class AdminProfileComponent {
+  @Input() loggedInUser!: LoggedUser;
 
 }
