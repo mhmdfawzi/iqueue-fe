@@ -10,6 +10,7 @@ import { QueueManagerService } from 'src/app/shared/services/queue-manager.servi
 export class ManagerProfileComponent implements OnInit {
 
   @Input() loggedInUser!: LoggedUser;
+  queueStatus: "open" | "closed" = "open"
 
   constructor(private qManager: QueueManagerService){}
 
@@ -33,5 +34,10 @@ export class ManagerProfileComponent implements OnInit {
 
       this.callQueueReservations()
     })
+  }
+
+  toggleQueue(){
+    console.log("Clicked")
+    this.queueStatus === "open" ? this.queueStatus = "closed" : this.queueStatus = "open"
   }
 }

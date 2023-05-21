@@ -46,7 +46,7 @@ export class AuthService {
   // }
 
   handleSuccessfulLogin(user: LoggedUser) {
-    // user.role = "owner"
+    user.role = "manager"
     this.loggedInUser.next(user);
     this.isLogged = true;
 
