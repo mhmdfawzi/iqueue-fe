@@ -1,0 +1,19 @@
+<div class="queue-details">
+  <p class="intro-text">{{introText}}</p>
+  <div class="form">
+    <form [formGroup]="queueForm">
+      <app-input [type]="'text'" formControlName="name" [label]="'Queue name'"></app-input>
+      <!-- <app-input [type]="'text'" formControlName="manager" [label]="'Manager'"></app-input> -->
+      <mat-form-field>
+        <mat-label>Manager</mat-label>
+        <mat-select [(ngModel)]="selectedManager" formControlName="manager">
+          <mat-option *ngFor="let manager of managers" [value]="manager._id">
+            {{manager.fullname}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </form>
+
+    <app-wide-button [txt]="'Submit Queue'" (btnClicked)="submitQueue()"></app-wide-button>
+  </div>
+</div>

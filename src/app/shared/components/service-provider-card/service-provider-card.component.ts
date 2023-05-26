@@ -14,7 +14,7 @@ import { Queue } from '../../models/interfaces/queue.model';
 })
 export class ServiceProviderCardComponent implements OnInit {
 
-  @Input() loggedInUser!: LoggedUser;
+  @Input({required: true}) loggedInUser!: LoggedUser;
   @Input() serviceProviderData!: ServiceProvider;
   @Input() thumbnailId!: number;
 

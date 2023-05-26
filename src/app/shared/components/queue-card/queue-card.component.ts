@@ -1,13 +1,20 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Queue } from '../../models/interfaces/queue.model';
 
 @Component({
   selector: 'app-queue-card',
   templateUrl: './queue-card.component.html',
   styleUrls: ['./queue-card.component.scss']
 })
-export class QueueCardComponent {
+export class QueueCardComponent implements OnInit {
 
-  @Input() queueData: any;
+  @Input({required: true}) queue!: Queue;
+  @Input({required: true}) index!: number;
+
+  ngOnInit(): void {
+    console.log("queue card :", this.queue)
+
+  }
 
   selfDelete(){
     console.log("DELETED QUEUE")

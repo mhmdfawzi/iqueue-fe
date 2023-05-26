@@ -1,6 +1,7 @@
 import { LoggedUser } from "../../services/auth-services/auth.service";
 import { Manager } from "./manager.model";
 import { ServiceProvider } from "./sp.model";
+import { BasicUser, User } from "./user.model";
 
 export interface Queue{
   _id: string,
@@ -12,6 +13,14 @@ export interface Queue{
   nowServing: number,
   nextServing: number,
   bookCount: number
+}
+
+export interface QueueForm{
+  name: string,
+  manager: Manager["id"],
+  serviceProvider: string,
+  createdBy: Manager["id"]
+
 }
 
 
@@ -28,7 +37,7 @@ export interface ReservationDetails{
   createdAt: string | Date,
   no: number,
   queue: Queue, // Queue ID
-  reserver: LoggedUser, // ID of user
+  reserver: BasicUser, // ID of user
   __v: number,
   _id: number
 }

@@ -9,17 +9,26 @@ import { environment } from 'src/environments/environment';
 import { CookieService } from 'ngx-cookie-service';
 import { HttpResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { SystemUser } from '../../models/classes/user-model';
+import { User } from '../../models/interfaces/user.model';
+import { ServiceProvider } from 'src/app/shared/models/interfaces/sp.model';
+
+// export interface ResponseLogin{
+//   success: boolean,
+//   message: string,
+//   data: LoggedUser
+// }
 
 export interface ResponseLogin{
-  success: boolean,
-  message: string,
-  data: LoggedUser
+  token: string
 }
 
 export interface LoggedUser {
   username: string,
   role: string,
-  id: string
+  id: string,
+  iat: number,
+  exp: number
 }
 
 @Injectable({
@@ -27,34 +36,39 @@ export interface LoggedUser {
 })
 export class AuthService {
 
-  //  isUserLoggedIn: boolean = false;
-  loggedInUser : BehaviorSubject<LoggedUser | null> = new BehaviorSubject<LoggedUser | null>(null);
+  // loggedInUser : BehaviorSubject<LoggedUser | null> = new BehaviorSubject<LoggedUser | null>(null);
+  loggedInUser!: User | null;
+
   isLogged: boolean = false;
 
    constructor(
     private generalService: GeneralService,
     private router: Router
-    // private cookieService: CookieService
   ) {}
 
   loginUser(loginForm: LoginForm): Observable<ResponseLogin>{
     return this.generalService.postAPIData<ResponseLogin>(`${environment.apiUrlAuth}/login`, loginForm)
   }
 
-  // loginUser(loginForm: LoginForm){
-  //   return this.generalService.postAPIData<ResponseLogin>(`${environment.apiUrlAuth}/login`, loginForm)
-  // }
+  handleSuccessfulLogin(response: ResponseLogin) {
+    localStorage.setItem('taburJWTToken', response.token)
 
-  handleSuccessfulLogin(user: LoggedUser) {
-    user.role = "manager"
-    this.loggedInUser.next(user);
+    // let tempUser = {
+    //   username: "seif",
+    //   role: "owner",
+    //   id: "645d063551d62d55de14ab2e",
+    //   iat: 1684796324,
+    //   exp: 1684882724
+    // }
+
+    // user.role = "manager"
+
+    // this.loggedInUser.next(new SystemUser(response.token)); // the Behavior Subject will emit the returned user of JWT from the class
+    this.loggedInUser = new SystemUser(response.token); // the Behavior Subject will emit the returned user of JWT from the class
+    // this.loggedInUser.next(tempUser); // the Behavior Subject will emit the returned user of JWT from the class
     this.isLogged = true;
 
     this.router.navigate(['home'])
-    // const expiresAt = moment().add(authResult.expiresIn,'second');
-
-    // localStorage.setItem('id_token', authResult.idToken);
-    // localStorage.setItem("expires_at", JSON.stringify(expiresAt.valueOf()) );
   }
 
   registerUser(formData: RegisterForm){
@@ -69,13 +83,6 @@ export class AuthService {
     localStorage.removeItem("id_token");
     localStorage.removeItem("expires_at");
   }
-
-
-
-  // isLoggedOut() {
-  //   return !this.isLoggedIn();
-  // }
-
 
 
   // getExpiration() {

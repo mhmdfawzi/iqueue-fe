@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { LoggedUser } from 'src/app/shared/services/auth-services/auth.service';
-import { QueueManagerService } from 'src/app/shared/services/queue-manager.service';
+import { Queue, ReservationDetails } from 'src/app/shared/models/interfaces/queue.model';
+import { LoggedUser, AuthService } from 'src/app/shared/services/auth-services/auth.service';
+import { QueueManagerService, QueuesDetailsResponse } from 'src/app/shared/services/queue-manager.service';
 
 @Component({
   selector: 'app-manager-profile',
@@ -9,27 +10,30 @@ import { QueueManagerService } from 'src/app/shared/services/queue-manager.servi
 })
 export class ManagerProfileComponent implements OnInit {
 
-  @Input() loggedInUser!: LoggedUser;
+  @Input({required: true}) loggedInUser!: LoggedUser | null;
   queueStatus: "open" | "closed" = "open"
 
-  constructor(private qManager: QueueManagerService){}
+  constructor(private qManager: QueueManagerService, private authService: AuthService){}
 
-  queueReservations!: any[];
-  queueId = "63b725afd14a1f4265cb562f"
+  queueReservations!: ReservationDetails[];
+  queue!: Queue;
+
+  // queueId = "646d32e8f3416bd5f19ca8b5"
 
   ngOnInit(): void {
     this.callQueueReservations();
   }
 
   callQueueReservations(){
-    this.qManager.getQueueReservations(this.queueId).subscribe((res:any) => {
+    this.qManager.getQueueReservationsByManagerID(this.authService.loggedInUser?.id!).subscribe((res:QueuesDetailsResponse) => {
       console.log("Reservation QUEUE :", res)
-      this.queueReservations = res.data
+      this.queueReservations = res.data.reservations
+      this.queue = res.data.queue
     })
   }
 
   moveNext(){
-    this.qManager.moveQueue(this.queueId).subscribe(res => {
+    this.qManager.moveQueue(this.queue._id).subscribe(res => {
       console.log("Moving a queue (response)", res);
 
       this.callQueueReservations()

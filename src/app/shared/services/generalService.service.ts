@@ -1,5 +1,4 @@
-import { HttpClient, HttpErrorResponse, HttpResponse } from "@angular/common/http";
-// import { CookieService } from "ngx-cookie";
+import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
@@ -10,19 +9,8 @@ import { Injectable } from "@angular/core";
 })
 export class GeneralService {
 
-  // options = {
-  //   // headers: {
-  //   //   "ceo-token": this.getTokenFromCookies(),
-  //   // },
-  // };
-
-  // private getTokenFromCookies() {
-  //   // return `Bearer ${this._cookieService.get("ceo-token")}`;
-  // }
-
   constructor(
     private http: HttpClient,
-    // private _cookieService: CookieService,
   ) {}
 
   getAPIData<T>(apiUrl: string): Observable<T>{

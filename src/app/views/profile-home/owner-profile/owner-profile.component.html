@@ -1,13 +1,14 @@
-<h3 class="intro-text">Here's a list of the your current queues :</h3>
+<h3 class="intro-text">Current Queues</h3>
 
 <div class="service-providers-holder">
 
-  <div class="service-provider-holder" *ngFor="let q of queues">
-    <app-queue-card [queueData]="q"></app-queue-card>
+  <div class="service-provider-holder" *ngFor="let q of queues; let i = index">
+    <app-queue-card [queue]="q" [index]="i"></app-queue-card>
   </div>
 
 </div>
 
 <div class="text-center">
-  <button class="btn active-primary-btn text-center">Create Queue</button>
+  <!-- <button class="btn active-primary-btn text-center">Create Queue</button> -->
+  <app-small-button [txt]="'Add a queue'" (btnClicked)="navToDetails()"></app-small-button>
 </div>

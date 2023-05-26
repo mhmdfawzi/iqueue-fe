@@ -21,10 +21,10 @@ export class LoginComponent implements OnInit { //extends BaseFormComponent
   ){}
 
   ngOnInit(): void {
-    this.initKPIForm();
+    this.initializeLoginForm();
   }
 
-  initKPIForm(){
+  initializeLoginForm(){
     this.loginForm = new FormGroup({
       username: new FormControl("", Validators.required),
       password: new FormControl("", Validators.required)
@@ -35,13 +35,10 @@ export class LoginComponent implements OnInit { //extends BaseFormComponent
 
     let formData: LoginForm = {username: this.loginForm.get('username')?.value, password: this.loginForm.get('password')?.value};
 
-    console.log("The form data is :", formData);
-
-    this.authService.loginUser(formData).subscribe((res) => {
+    this.authService.loginUser(formData).subscribe((res: ResponseLogin) => {
 
       console.log("Login Sub Response: ", res)
-      this.authService.handleSuccessfulLogin(res.data)
-      // this.authService.handleSuccessfulLogin(res.data);
+      this.authService.handleSuccessfulLogin(res) // Sending the Response of JWT for parsing and emitting the user to the APP
 
     }, err => { // TODO Handle the FAIL to LOGIN scenario ! (Show err msg or toaster)
       console.log("Got an error on Login", err)

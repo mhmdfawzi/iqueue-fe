@@ -37,7 +37,6 @@ export class AppComponent implements OnInit{
     this.router.events.subscribe(val => {
       if(val instanceof NavigationEnd){
         if(val.url === '/' || val.url === '/login' || val.url === '/sign-up'){
-          console.log("The URL", val.url)
           this.showNav = false
           this.addClassMain = false
         }else{
@@ -48,13 +47,15 @@ export class AppComponent implements OnInit{
       }
 
       if(val instanceof NavigationStart){
-        console.log("The URL", val.url)
+        console.log
         if(val.url === '/home'){
           this.navbarTitle = "Home"
         }else if(val.url.includes('/in-queue')){
           this.navbarTitle = "Queue"
-        }else if(val.url === "settings"){
+        }else if(val.url === "/settings"){
           this.navbarTitle = "Settings"
+        }else if(val.url.includes("/queue-details")){
+          this.navbarTitle = "Queue Details"
         }
       }
     })
@@ -62,7 +63,7 @@ export class AppComponent implements OnInit{
 
   navigate(route: string){
     if(route === "login"){
-      this.authService.loggedInUser.next(null)
+      this.authService.loggedInUser = null
     }
     this.router.navigate([route])
   }

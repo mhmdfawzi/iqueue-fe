@@ -7,6 +7,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatIconModule } from "@angular/material/icon";
+import { MatSelectModule } from '@angular/material/select';
 
 // Components >>
 import { ServiceProviderCardComponent } from './components/service-provider-card/service-provider-card.component';
@@ -21,6 +22,7 @@ import { WideButtonComponent } from './components/wide-button/wide-button.compon
 import { CategoryBadgeComponent } from './components/category-badge/category-badge.component';
 import { SmallButtonComponent } from './components/small-button/small-button.component';
 import { CircleButtonComponent } from './components/circle-button/circle-button.component';
+import { QueueDetailsComponent } from './components/queue-details/queue-details.component';
 
 @NgModule({
   imports: [
@@ -31,7 +33,8 @@ import { CircleButtonComponent } from './components/circle-button/circle-button.
     MatInputModule,
     MatButtonModule,
     MatCheckboxModule,
-    MatIconModule
+    MatIconModule,
+    MatSelectModule
   ],
 
   declarations: [
@@ -47,6 +50,7 @@ import { CircleButtonComponent } from './components/circle-button/circle-button.
     CategoryBadgeComponent,
     SmallButtonComponent,
     CircleButtonComponent,
+    QueueDetailsComponent,
 
   ],
 
@@ -71,6 +75,7 @@ import { CircleButtonComponent } from './components/circle-button/circle-button.
     CategoryBadgeComponent,
     SmallButtonComponent,
     CircleButtonComponent,
+    QueueDetailsComponent,
 
   ],
 })
