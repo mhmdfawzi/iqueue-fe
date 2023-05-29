@@ -33,8 +33,13 @@ export class ProfileService {
     private generalService: GeneralService
   ) {}
 
-  getProviders(){
-    return this.generalService.getAPIData(`${environment.apiUrl}/serviceProviders`)
+  getProviders(category?: string, published: boolean= true){
+
+    if(category){
+      return this.generalService.getAPIData(`${environment.apiUrl}/serviceProviders?published=true&category=${category}`)
+    }else{
+      return this.generalService.getAPIData(`${environment.apiUrl}/serviceProviders?published=true`)
+    }
   }
 
   reserve(reserverData: ReserverModel): Observable<ReservingResponse>{

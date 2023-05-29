@@ -8,6 +8,7 @@ import { LoginComponent } from './views/login/login.component';
 import { ProfileHomeComponent } from './views/profile-home/profile-home/profile-home.component';
 import { SignUpComponent } from './views/sign-up/sign-up.component';
 import { AuthGuardService } from './shared/services/guards/auth-guard.service';
+import { QueueDetailsComponent } from './shared/components/queue-details/queue-details.component';
 
 const routes: Routes = [
   {path: "", component: HomeComponent},
@@ -15,6 +16,7 @@ const routes: Routes = [
   {path: "login", component: LoginComponent},
   {path: "sign-up", component: SignUpComponent},
   {path: "in-queue", component: InQueueComponent, canActivate: [AuthGuardService]},
+  {path: "queue-details", component: QueueDetailsComponent},
   {path: "**", component: HomeComponent},
 ];
 

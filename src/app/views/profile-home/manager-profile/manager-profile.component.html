@@ -5,8 +5,14 @@
 </div>
 
 <div class="reservations-holder" [ngStyle]="{'opacity' : queueStatus === 'open' ? '1' : '0.5'}">
-  <div class="row reservation-row m-3" *ngFor="let reservation of queueReservations" [ngClass]="{'active-row' : reservation.no === reservation.queue.nowServing}">
-    <p class="num-p"><mat-icon>account_box</mat-icon> # {{reservation.no}} - {{reservation.reserver.username}}</p>
+  <div class="row reservation-row m-3" *ngFor="let reservation of queueReservations" [ngClass]="{'active-row' : reservation.no === queue.nowServing}">
+    <p class="num-p"><mat-icon>account_box</mat-icon> # {{reservation.no}} - {{reservation.reserver.fullname}}</p>
     <p class="creation-p">Creation Time: {{reservation.createdAt | date:"dd, MMM hh:mm"}}</p>
   </div>
+
+  <!-- <div *ngIf="queueReservations?.length <1">
+    <p>No reservations found!</p>
+  </div> -->
 </div>
+
+

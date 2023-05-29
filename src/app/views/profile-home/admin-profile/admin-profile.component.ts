@@ -7,6 +7,6 @@ import { LoggedUser } from 'src/app/shared/services/auth-services/auth.service';
   styleUrls: ['./admin-profile.component.scss']
 })
 export class AdminProfileComponent {
-  @Input() loggedInUser!: LoggedUser;
+  @Input({required: true}) loggedInUser!: LoggedUser | null;
 
 }

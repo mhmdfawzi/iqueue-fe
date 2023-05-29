@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Category } from '../../models/interfaces/categories.model';
 
 @Component({
   selector: 'app-category-badge',
@@ -6,6 +7,13 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./category-badge.component.scss']
 })
 export class CategoryBadgeComponent {
+  @Output() categoryClicked: EventEmitter<string> = new EventEmitter<string>();
 
-  @Input() categoryName!: string;
+  @Input({required: true}) category!: Category;
+  @Input({required: true}) active: boolean = false;
+
+
+  clickCategory(categoryId: string){
+    this.categoryClicked.emit(categoryId)
+  }
 }

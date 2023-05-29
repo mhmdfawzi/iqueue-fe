@@ -3,10 +3,10 @@
 import { Injectable } from '@angular/core';
 import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import {map} from 'rxjs/operators';
 
 @Injectable()
 export class HttpInterceptorService implements HttpInterceptor{
+
 
   constructor(){}
 
@@ -14,13 +14,13 @@ export class HttpInterceptorService implements HttpInterceptor{
 
     let modifiedReq = req.clone({
       setHeaders: {
-        Authorization: 'Bearer xx.yy.zz'
+        Authorization: `Bearer ${localStorage.getItem("taburJWTToken")}`
       }
     })
 
     return next.handle(modifiedReq)
 
-    //* To modify the HTTP RESPONSE then uncomment
+    //* uncomment to modify the HTTP RESPONSE
     // return next.handle(modifiedReq).pipe(map((event: HttpEvent<any>) => {
     //   if (event instanceof HttpResponse){
     //     event = event.clone({body: this.modifyBody(event.body)})
@@ -31,6 +31,6 @@ export class HttpInterceptorService implements HttpInterceptor{
   }
 
   // private modifyBody(body: any){
-  //   body = body.data = 'haha'
+  //   body = body.data = 'tested in angular, dummy text'
   // }
 }
