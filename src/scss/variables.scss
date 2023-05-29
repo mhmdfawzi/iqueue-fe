@@ -1,15 +1,63 @@
 
-// Colors pallet
+/* Colors pallet */
 
-$primaryColor: white;
-$secondaryColor: rgb(238, 254, 143);
+
+
+:root{
+  --primaryColor: #FFF3E2;
+  --secondaryColor: #FFE5CA;
+
+  --roseColor: #FA9884;
+  --roseDarkColor: #E74646;
+
+  --taburGrey: #897E73;
+  --taburGreyLemonLight: #EEF3E9;
+  --taburLightGrey: #F8F9FB;
+  --taburGreyBiege: #BB936F;
+
+  --mainBorderRadius : 12px;
+  --primaryBtnBorderRadius: 25px;
+  --badgeBorderRadius: 16px;
+
+  --bigTitleSize: 38px;
+  --titleSize: 28px;
+  --secondaryTitleSize: 20px;
+
+  --smallShadow: -7px 5px 9px -10px rgba(0,0,0,0.75);
+
+}
+
+
 $redHighlightedText: #de002d;
 
-// Font Sizes
 $h1Size: 4.4rem;
 $h2Size: 3.5rem;
 
 
-// Border Radiuses
 
-$primaryBtnBorderRadius: 4px;
+
+$bgColor_light: white;
+$bgColor_dark: black;
+
+$textColor_light: black;
+$textColor_dark: white;
+
+$borderColor_light: black;
+$borderColor_dark: white;
+
+
+
+
+// mixin that enables css variables in light mode
+@mixin lighten() {
+  --bgColor: #{$bgColor_light};
+  --textColor: #{$textColor_light};
+  --borderColor: #{$borderColor_light};
+}
+
+// mixin that enables css variables in dark mode
+@mixin darken() {
+  --bgColor: #{$bgColor_dark};
+  --textColor: #{$textColor_dark};
+  --borderColor: #{$borderColor_dark};
+}

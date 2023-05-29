@@ -1,0 +1,16 @@
+
+
+button{
+  width: 105px;
+  background-color: var(--roseDarkColor);
+  border: none;
+  padding: 7px 0px 7px 0px;
+  border-radius: var(--primaryBtnBorderRadius);
+  color: white;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.inactive{
+  background-color: var(--taburGreyBiege);
+}

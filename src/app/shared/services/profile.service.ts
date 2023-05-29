@@ -1,10 +1,27 @@
 import { GeneralService } from './generalService.service';
 import { Injectable } from "@angular/core";
 import { environment } from 'src/environments/environment';
+import { Queue, ReservationDetails, ReservingDetails } from '../models/interfaces/queue.model';
+import { Observable } from 'rxjs';
 
 interface ReserverModel{
   reserver: string,
   queue: string
+}
+
+interface TaburHttpRes {
+  success: boolean
+}
+export interface QueuesResponse extends TaburHttpRes{
+  data: Queue[]
+}
+
+export interface ReservationResponse extends TaburHttpRes{ // Response of GETTING reservation details
+  data: ReservationDetails
+}
+
+export interface ReservingResponse extends TaburHttpRes{ // Response of POSTING a reservation in queue
+  data: ReservingDetails
 }
 
 @Injectable({
@@ -16,16 +33,24 @@ export class ProfileService {
     private generalService: GeneralService
   ) {}
 
-  getProviders(){
-    return this.generalService.getAPIData(`${environment.apiUrl}/serviceProviders`)
+  getProviders(category?: string, published: boolean= true){
+
+    if(category){
+      return this.generalService.getAPIData(`${environment.apiUrl}/serviceProviders?published=true&category=${category}`)
+    }else{
+      return this.generalService.getAPIData(`${environment.apiUrl}/serviceProviders?published=true`)
+    }
   }
 
-  reserve(reserverData: ReserverModel){
-    return this.generalService.postAPIData(`${environment.apiUrl}/reservations`, reserverData)
+  reserve(reserverData: ReserverModel): Observable<ReservingResponse>{
+    return this.generalService.postAPIData<ReservingResponse>(`${environment.apiUrl}/reservations`, reserverData)
   }
 
-  reservationDetails(id: string){
-    return this.generalService.getAPIData(`${environment.apiUrl}/reservations/${id}`)
+  reservationDetails(id: string): Observable<ReservationResponse>{
+    return this.generalService.getAPIData<ReservationResponse>(`${environment.apiUrl}/reservations/${id}`)
   }
 
+  getServiceProviderQueues(id: string): Observable<QueuesResponse>{
+    return this.generalService.getAPIData<QueuesResponse>(`${environment.apiUrl}/queues/serviceProvider/${id}`)
+  }
 }

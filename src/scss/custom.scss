@@ -1,31 +1,36 @@
 @import "./variables.scss";
 
+.main{
+  background-color: var(--bgColor);
+  color: var(--textColor);
+  height: 100vh;
+  padding: 10px;
+}
+
 // Styles for Global buttons::
 
-@mixin btnStyler($bgColor) {
-  background-color: $bgColor;
-  color: black!important;
-  border-radius: $primaryBtnBorderRadius;
-  font-weight: bold;
+// @mixin btnStyler($bgColor) {
+//   background-color: $bgColor;
+//   color: black!important;
+//   border-radius: $primaryBtnBorderRadius;
+//   font-weight: bold;
 
-  &:hover{
-    background-color: rgba($bgColor, .8);
-  }
-}
+//   &:hover{
+//     background-color: rgba($bgColor, .8);
+//   }
+// }
 
 
 
-.inactive-primary-btn{
-  @include btnStyler(white);
-}
+// .inactive-primary-btn{
+//   @include btnStyler(white);
+// }
 
-.active-primary-btn{
-  @include btnStyler($secondaryColor);
-}
+// .active-primary-btn{
+//   @include btnStyler($secondaryColor);
+// }
 
 
 // padding for Navbar
 
-.padding-for-nav{
-  padding-top: 60px;
-}
+

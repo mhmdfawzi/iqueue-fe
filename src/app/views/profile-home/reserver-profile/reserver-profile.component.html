@@ -1,9 +1,20 @@
-<h3 class="intro-text">Here's a list of the available service providers :</h3>
+<div>
+  <!-- <p class="page-title">Check Service Providers</p> -->
 
-<div class="service-providers-holder">
+  <app-input [label]="'Search'" [placeholder]="'Search'" (currentText)="onSearchChange($event)"></app-input>
 
-  <div class="service-provider-holder" *ngFor="let card of providers">
-    <app-service-provider-card [serviceProviderData]="card"></app-service-provider-card>
+  <div class="categories-row py-3">
+    <app-category-badge class="mx-3" *ngFor="let category of serviceProvidersCategories" [category]="category" (categoryClicked)="fetchServiceProviders($event)" [active]="activeCategory === category._id"></app-category-badge>
   </div>
 
+  <div class="service-providers-row">
+
+    <ng-container *ngIf="loggedInUser">
+      <div class="service-provider-holder m-3" *ngFor="let card of providers; let i = index">
+        <app-service-provider-card [serviceProviderData]="card" [thumbnailId]="i" [loggedInUser]="loggedInUser" ></app-service-provider-card>
+      </div>
+
+    </ng-container>
+
+  </div>
 </div>

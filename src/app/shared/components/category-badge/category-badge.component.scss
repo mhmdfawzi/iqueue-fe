@@ -1,0 +1,14 @@
+
+span{
+
+  display: inline-block;
+  border: 1px solid var(--taburGreyBiege);
+  padding: 12px;
+  border-radius: var(--badgeBorderRadius);
+  font-weight: bold;
+  background-color: var(--taburGreyLemonLight);
+}
+
+.active{
+  background-color: var(--roseColor);
+}

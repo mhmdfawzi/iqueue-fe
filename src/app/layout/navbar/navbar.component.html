@@ -1,32 +1,7 @@
-<nav [ngStyle]="{'display': isMobile ? 'none' : 'block'}">
+<div class="tabur-navbar">
   <div class="row">
-    <div class="col-4 logo-col">
-      <a routerLink="/home">Logo</a>
-    </div>
-
-    <div class="col">
-      <a routerLink="/home">Home</a>
-    </div>
-
-    <!-- <div class="col">
-      <a routerLink="/register">Register</a>
-    </div> -->
-
-    <div class="col">
-      <a routerLink="/login">login</a>
-    </div>
-
-    <div class="col">
-      <a routerLink="/reserve">Reserve</a>
-    </div>
-
-    <div class="col">
-      <a routerLink="/about-us">About us</a>
-    </div>
-
-    <div class="col">
-      <a routerLink="/documents">Documents</a>
-    </div>
+    <div class="col-3"><mat-icon (click)="clickMenu()">menu</mat-icon></div>
+    <div class="col" style="text-align: center;">{{title}}</div>
+    <div class="col-3"></div>
   </div>
-
-</nav>
+</div>

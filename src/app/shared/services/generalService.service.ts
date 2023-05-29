@@ -1,5 +1,4 @@
 import { HttpClient, HttpErrorResponse } from "@angular/common/http";
-import { CookieService } from "ngx-cookie";
 import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
@@ -10,35 +9,28 @@ import { Injectable } from "@angular/core";
 })
 export class GeneralService {
 
-  // options = {
-  //   // headers: {
-  //   //   "ceo-token": this.getTokenFromCookies(),
-  //   // },
-  // };
-
-  // private getTokenFromCookies() {
-  //   // return `Bearer ${this._cookieService.get("ceo-token")}`;
-  // }
-
   constructor(
     private http: HttpClient,
-    private _cookieService: CookieService,
   ) {}
 
-  getAPIData(apiUrl: string): Observable<any>{
-    return this.http.get(apiUrl).pipe(catchError((err) => this.errorHandler(err)))
+  getAPIData<T>(apiUrl: string): Observable<T>{
+    return this.http.get<T>(apiUrl).pipe(catchError((err) => this.errorHandler(err)))
   }
 
-  postAPIData(apiUrl: string, payload?: any): Observable<any>{
-    return this.http.post(apiUrl, payload).pipe(catchError((err) => this.errorHandler(err)))
+  postAPIData<T>(apiUrl: string, payload: any): Observable<T>{
+    return this.http.post<T>(apiUrl, payload).pipe(catchError((err) => this.errorHandler(err)))
   }
 
-  putAPIData(apiUrl: string, payload?: any): Observable<any>{
-    return this.http.put(apiUrl, payload).pipe(catchError((err) => this.errorHandler(err)))
+  // postAPIData<T>(apiUrl: string, payload: any){
+  //   return this.http.post(apiUrl, payload, {observe: 'response'}).pipe(catchError((err) => this.errorHandler(err)))
+  // }
+
+  putAPIData<T>(apiUrl: string, payload: any): Observable<T>{
+    return this.http.put<T>(apiUrl, payload).pipe(catchError((err) => this.errorHandler(err)))
   }
 
-  deleteAPIData(apiUrl: string): Observable<any>{
-    return this.http.delete(apiUrl).pipe(catchError((err) => this.errorHandler(err)))
+  deleteAPIData<T>(apiUrl: string): Observable<T>{
+    return this.http.delete<T>(apiUrl).pipe(catchError((err) => this.errorHandler(err)))
   }
 
 

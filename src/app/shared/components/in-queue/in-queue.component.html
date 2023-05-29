@@ -1,4 +1,4 @@
-<div class="main" *ngIf="!isMobile">
+<div *ngIf="!isMobile">
 
   <div class="static-text">
     <p >
@@ -15,25 +15,26 @@
   </div>
 </div>
 
-<div class="main" *ngIf="isMobile">
+<div *ngIf="isMobile">
 
-  <div class="static-text-mob">
-    <p class="number-in-queue-mob">{{reservationDetails?.no}}</p>
-    <p >
-      Status : in queue
-    </p>
+  <div class="static-text-mob" *ngIf="reservationDetails">
 
-    <p class="clients-remaining">
-      Clients remaining : {{reservationDetails?.no - reservationDetails?.queue.nowServing}}
-    </p>
+    <div class="info-section">
+      <p class="number-in-queue-mob">You're #{{reservationDetails.no}}</p>
+      <p class="clients-remaining">
+        Clients remaining : ({{reservationDetails.no - reservationDetails.queue.nowServing}})
+      </p>
 
-    <p class="estimation-time">
-      Estimated Time : {{(reservationDetails?.no - reservationDetails?.queue.nowServing) * 15}} minutes.
-    </p>
+      <p class="estimation-time">
+        Estimated Time : ({{(reservationDetails.no - reservationDetails.queue.nowServing) * 15}} minutes).
+      </p>
+      <!-- <p>Status : in queue</p> -->
+    </div>
 
-    <p class="clients-remaining">
-      <button class="btn active-primary-btn" (click)="cancelQueue()">Home</button>
-    </p>
+    <div class="actions-section">
+      <!-- <button class="btn active-primary-btn" (click)="cancelQueue()">Home</button> -->
+      <app-circle-button [txt]="'Home'"></app-circle-button>
+    </div>
   </div>
 </div>
 

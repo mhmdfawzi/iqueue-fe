@@ -1,22 +1,56 @@
-@import "../../../../scss/variables.scss";
+// @import "../../../../scss/variables.scss";
 
-.queue-card{
+// .queue-card{
+// }
+
+// .queue-name, .queue-clients{
+
+//   p{
+//     font-weight: bold;
+//     text-align: center;
+//     padding: 7px;
+//   }
+// }
+
+// .button-row{
+//   display: flex;
+//   justify-content: center;
+
+//   button{
+//     color: $redHighlightedText;
+//   }
+// }
+
+p{
+  margin: 0;
+  padding: 4px 0;
 }
 
-.queue-name, .queue-clients{
+.queue-index{
 
-  p{
-    font-weight: bold;
-    text-align: center;
-    padding: 7px;
-  }
-}
-
-.button-row{
   display: flex;
+  align-items: center;
   justify-content: center;
+  font-weight: bold;
+  font-size: 30px;
+  color: var(--roseDarkColor);
+}
 
-  button{
-    color: $redHighlightedText;
-  }
+.queue, .row{
+  height: 100%;
+}
+
+.info-col{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+.manager-name, .booked-count, .served-customer, .queue-name{
+  font-weight: bold;
+}
+
+.highlighted{
+  color: var(--roseDarkColor);
 }

@@ -1,3 +1,39 @@
-<div class="main padding-for-nav">
+<!-- <div>
   <app-log-form [introText]="introText" [btnActionText]="actionText" (formSubmission)="submitData($event)"></app-log-form>
+</div> -->
+
+<div class="">
+
+  <div class="intro">
+
+    <div class="content">
+      <p class="logo">Logo</p>
+      <p class="welcome-txt">Welcome Back!</p>
+      <p class="sign-txt">Please sign in to your account</p>
+    </div>
+  </div>
+
+  <div class="form">
+
+    <form [formGroup]="loginForm">
+
+      <div class="inputs-section">
+        <app-input [label]="'Email Address'" [placeholder]="'ex@tabur.com'" formControlName="username"></app-input>
+        <app-input [label]="'Password'" [type]="'password'" formControlName="password"></app-input>
+
+        <div class="row remember-row">
+          <div class="col remember-col">
+            <mat-checkbox class="example-margin">Remember</mat-checkbox>
+          </div>
+          <div class="col password-col">Forgot password?</div>
+        </div>
+      </div>
+
+      <div class="actions-section">
+        <app-wide-button [txt]="'Sign in'" (btnClicked)="signIn()"></app-wide-button>
+        <p class="sign-up-hint pt-3">Don't have an account? <span class="sign-up-route" routerLink="/sign-up">Sign up</span></p>
+      </div>
+    </form>
+  </div>
+
 </div>

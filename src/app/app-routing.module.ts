@@ -6,25 +6,17 @@ import { DocumentsComponent } from './views/documents/documents.component';
 import { HomeComponent } from './views/home/home.component';
 import { LoginComponent } from './views/login/login.component';
 import { ProfileHomeComponent } from './views/profile-home/profile-home/profile-home.component';
-import { RegisterComponent } from './views/register/register.component';
+import { SignUpComponent } from './views/sign-up/sign-up.component';
+import { AuthGuardService } from './shared/services/guards/auth-guard.service';
+import { QueueDetailsComponent } from './shared/components/queue-details/queue-details.component';
 
 const routes: Routes = [
   {path: "", component: HomeComponent},
-  // {path: "reserve",
-
-  //   loadChildren: () =>
-  //   import("./views/profile-home/profile-home.module").then(
-  //     (m) => m.ProfileHomeModule
-  //   )
-  // },
-
-  {path: ":userType/home", component: ProfileHomeComponent},
-
-  {path: "register", component: RegisterComponent},
+  {path: "home", component: ProfileHomeComponent, canActivate: [AuthGuardService]},
   {path: "login", component: LoginComponent},
-  {path: "about-us", component: AboutUsComponent},
-  {path: "documents", component: DocumentsComponent},
-  {path: "in-queue", component: InQueueComponent},
+  {path: "sign-up", component: SignUpComponent},
+  {path: "in-queue", component: InQueueComponent, canActivate: [AuthGuardService]},
+  {path: "queue-details", component: QueueDetailsComponent},
   {path: "**", component: HomeComponent},
 ];
 

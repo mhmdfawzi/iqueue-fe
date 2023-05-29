@@ -1,11 +1,24 @@
 
-<div class="sp-card">
+<div class="holder">
 
-  <div class="sp-name">
-    <p>{{serviceProviderData.name}}</p>
+
+  <div class="sp-card">
+
+    <div class="sp-card-img" > <!-- style="background-image: url('/assets/imgs/{{thumbnailId}}.jpg')" -->
+      <img [src]="serviceProviderData.logo" />
+    </div>
+
+    <div class="sp-card-details">
+      <p>{{serviceProviderData.name}}</p>
+    </div>
+
+    <div class="button-row">
+      <!-- <button type="submit" class="reserve-btn btn active-primary-btn" (click)="reserve(serviceProviderData.queues._id)">Reserve</button> -->
+      <!-- <app-small-button [txt]="'Join Queue'" (btnClicked)="reserve(serviceProviderData.queues._id)"></app-small-button> -->
+      <app-small-button [txt]="'Join Queue'" (btnClicked)="reserve()"></app-small-button>
+
+    </div>
   </div>
 
-  <div class="button-row">
-    <button type="submit" class="reserve-btn btn active-primary-btn" (click)="reserve(serviceProviderData.queues._id)">Reserve</button>
-  </div>
+
 </div>

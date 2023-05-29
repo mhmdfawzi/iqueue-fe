@@ -1,10 +1,35 @@
 /* You can add global styles to this file, and also import other style files */
+@import "./scss/variables.scss";
 @import "./scss/custom.scss";
+
+/* Each view page should start with MAIN class, each component should start with HOLDER class*/
 
 body{
   font-family: 'Dosis', sans-serif;
-  background-color: #c2c2c2;
+  // background-color: #c2c2c2;
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.row{
+  margin: 0;
+  padding: 0;
+}
+
+
+// html, body { height: 100%; }
+// body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+body.dark {
+  @include darken();
+}
+
+body.light {
+  @include lighten();
+}
+
+
+.mat-mdc-text-field-wrapper{
+  background-color: white!important; // To turn off all inputs whitesmoke colors in background
+
+}
+

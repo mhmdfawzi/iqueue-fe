@@ -1,0 +1,71 @@
+@import url('../../../scss/variables.scss');
+
+.intro, .form{
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+.intro{
+  // background-image: url('/assets/imgs/login.svg');
+  background-color: #B4D5E0;
+  height: 40vh;
+  // background-size: contain;
+  // background-repeat: no-repeat;
+}
+
+.content{
+  padding-top: 25%;
+  padding-right: 20%;
+  font-weight: bold;
+  font-size: 30px;
+
+  .welcome-txt{
+    font-weight: normal;
+    margin-top: 25px;
+    margin-bottom: 40px;
+  }
+
+  .sign-txt{
+    font-weight: 500;
+  }
+
+}
+
+.form{
+  padding-top: 10%;
+  height: 60vh;
+
+
+  .remember-row{
+    align-items: center;
+
+    .password-col{
+      text-align: right;
+      text-decoration: underline;
+
+      &:hover{
+        color: var(--taburGreyBiege) ;
+      }
+    }
+  }
+
+  .actions-section{
+    padding-bottom: 5%;
+  }
+}
+
+.sign-up-hint{
+  text-align: center;
+}
+
+.sign-up-route{
+  color: var(--taburGreyBiege) ;
+}
+
+form{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+}
