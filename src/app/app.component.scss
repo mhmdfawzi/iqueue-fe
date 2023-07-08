@@ -10,6 +10,7 @@ p{
 mat-drawer {
   width: 80%;
   max-width: 500px;
+  background-color: var(--bgColor);
 }
 
 mat-icon{
@@ -25,4 +26,30 @@ mat-icon{
   padding: 20px;
   padding-left: 12px;
   color: var(--roseDarkColor);
+}
+
+.theme-item{
+
+  display: block;
+  text-align: center;
+  font-size: 14px;
+  padding: 0;
+
+  .black-color-rect, .white-color-rect{
+    height: 30px;
+    width: 70px;
+    border-radius: 12px;
+    border: 1px solid var(--roseDarkColor);
+    display: inline-block;
+    margin: 5px;
+
+  }
+
+  .black-color-rect{
+    background-color: black;
+  }
+
+  .white-color-rect{
+    background-color: white;
+  }
 }

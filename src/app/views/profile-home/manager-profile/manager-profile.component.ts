@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Queue, ReservationDetails } from 'src/app/shared/models/interfaces/queue.model';
 import { LoggedUser, AuthService } from 'src/app/shared/services/auth-services/auth.service';
-import { QueueManagerService, QueuesDetailsResponse } from 'src/app/shared/services/queue-manager.service';
+import { QueueManagerService, QueueToggleResponse, QueuesDetailsResponse } from 'src/app/shared/services/queue-manager.service';
 
 @Component({
   selector: 'app-manager-profile',
@@ -27,8 +27,12 @@ export class ManagerProfileComponent implements OnInit {
   callQueueReservations(){
     this.qManager.getQueueReservationsByManagerID(this.authService.loggedInUser?.id!).subscribe((res:QueuesDetailsResponse) => {
       console.log("Reservation QUEUE :", res)
-      this.queueReservations = res.data.reservations
+      // this.queueReservations = res.data.reservations
       this.queue = res.data.queue
+
+      this.qManager.getQueueReservationsByQueueID(this.queue._id).subscribe((res:any) => {
+        this.queueReservations = res.data
+      })
     })
   }
 
@@ -42,6 +46,13 @@ export class ManagerProfileComponent implements OnInit {
 
   toggleQueue(){
     console.log("Clicked")
-    this.queueStatus === "open" ? this.queueStatus = "closed" : this.queueStatus = "open"
+
+    //Keepings this code for optimistic UI reflection.
+    this.queueStatus === "open" ? this.queueStatus = "closed" : this.queueStatus = "open" // <<
+
+    this.qManager.toggleQueue(this.queue._id).subscribe((res: QueueToggleResponse) => {
+      console.log("res", res)
+      res.data.isActive === true ? this.queueStatus = "open" : this.queueStatus = "closed";
+    })
   }
 }

@@ -12,7 +12,8 @@ export interface Queue{
   createdAt: string | Date,
   nowServing: number,
   nextServing: number,
-  bookCount: number
+  bookCount: number,
+  isActive?: boolean
 }
 
 export interface QueueForm{

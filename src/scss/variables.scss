@@ -37,7 +37,7 @@ $h2Size: 3.5rem;
 
 
 $bgColor_light: white;
-$bgColor_dark: black;
+$bgColor_dark: #19252c;
 
 $textColor_light: black;
 $textColor_dark: white;
@@ -45,7 +45,8 @@ $textColor_dark: white;
 $borderColor_light: black;
 $borderColor_dark: white;
 
-
+$tilesBgColor_dark: #414141;
+$tilesBgColor_white: #F8F9FB;
 
 
 // mixin that enables css variables in light mode
@@ -53,6 +54,7 @@ $borderColor_dark: white;
   --bgColor: #{$bgColor_light};
   --textColor: #{$textColor_light};
   --borderColor: #{$borderColor_light};
+  --tilesBgColor: #{$tilesBgColor_white};
 }
 
 // mixin that enables css variables in dark mode
@@ -60,4 +62,5 @@ $borderColor_dark: white;
   --bgColor: #{$bgColor_dark};
   --textColor: #{$textColor_dark};
   --borderColor: #{$borderColor_dark};
+  --tilesBgColor: #{$tilesBgColor_dark};
 }

@@ -1,8 +1,3 @@
-<!-- <app-navbar></app-navbar>
-<div class="container-fluid">
-</div> -->
-
-
 
 <mat-drawer-container class="example-container" autosize>
   <mat-drawer #drawer class="example-sidenav" mode="over">
@@ -12,9 +7,11 @@
     <div class="tabur-drawer-list">
       <p class="route-item" *ngFor="let routeItem of appRoutes" (click)="drawer.close(); navigate(routeItem.route)"><mat-icon>{{routeItem.icon}}</mat-icon> <span>{{routeItem.caption}}</span> </p>
 
-      <!-- <button (click)="drawer.close()" mat-raised-button>
-        <app-circle-button [txt]="'<<'"></app-circle-button>
-      </button> -->
+      <div class="route-item theme-item">
+        <p>Theme color</p>
+        <div class="black-color-rect" (click)="toggleTheme('dark')"></div>
+        <div class="white-color-rect" (click)="toggleTheme('light')"></div>
+      </div>
     </div>
 
   </mat-drawer>
@@ -30,11 +27,3 @@
   </div>
 
 </mat-drawer-container>
-
-<!-- <div class="menu-btn">
-  <button class="btn inactive-primary-btn" (click)="menuBtnClicked()">menu</button>
-</div>
-
-<div class="side-menu" *ngIf="isMobile && showSlide">
-  <app-slide-menu></app-slide-menu>
-</div> -->

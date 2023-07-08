@@ -39,7 +39,10 @@ export class ServiceProviderCardComponent implements OnInit {
 
       // Nav to queues view
 
+      console.log("Has many queues , where to go !")
+
     }else{
+      console.log("The queues", this.queues)
       reservation.queue = this.queues[0]._id // getting the ID of the only element in the array
 
       this.profileService.reserve(reservation).subscribe((res: ReservingResponse) => {
@@ -58,6 +61,7 @@ export class ServiceProviderCardComponent implements OnInit {
   populateQueues(){ // call API to get the queues
     this.profileService.getServiceProviderQueues(this.serviceProviderData._id).subscribe((res: QueuesResponse) => {
       this.queues = res.data
+      console.log("The queues fetch", this.queues)
     })
   }
 }

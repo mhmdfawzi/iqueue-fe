@@ -1,23 +1,13 @@
 import { Injectable } from '@angular/core';
 
-import { BehaviorSubject, Observable, of } from 'rxjs';
-import { tap, delay } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 import { GeneralService } from '../generalService.service';
 import { LoginForm, RegisterForm } from '../../models/interfaces/form.model';
 import { environment } from 'src/environments/environment';
-// import * as moment from "moment";
-import { CookieService } from 'ngx-cookie-service';
-import { HttpResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { SystemUser } from '../../models/classes/user-model';
 import { User } from '../../models/interfaces/user.model';
-import { ServiceProvider } from 'src/app/shared/models/interfaces/sp.model';
 
-// export interface ResponseLogin{
-//   success: boolean,
-//   message: string,
-//   data: LoggedUser
-// }
 
 export interface ResponseLogin{
   token: string
@@ -29,6 +19,13 @@ export interface LoggedUser {
   id: string,
   iat: number,
   exp: number
+}
+
+export interface RouteItem{
+  caption: string,
+  route: string,
+  icon:string,
+  users: string[]
 }
 
 @Injectable({
@@ -84,6 +81,28 @@ export class AuthService {
     localStorage.removeItem("expires_at");
   }
 
+  getUserMenuItems(): RouteItem[]{
+
+    // Icons should follow the namings of mat-icon library to show an actual icon.
+    const routes : RouteItem[] = [
+      {caption: 'Home', route: 'home', icon: 'home', users : ["manager", "owner", "basic"]},
+      {caption: 'Current Queue', route: 'in-queue', icon: 'queue_play_next', users : ["basic"]},
+      {caption: 'My Queue', route: 'in-queue', icon: 'queue_play_next', users : ["manager"]},
+      {caption: 'Settings', route: 'settings', icon: 'settings', users : ["manager", "owner", "basic"]},
+      {caption: 'Log out', route: 'login', icon: 'remove_circle_outline', users : ["manager", "owner", "basic"]},
+    ]
+
+    let currentUserRoutes: RouteItem[] = [];
+
+    for(let route of routes){
+      if(route.users.includes(this.loggedInUser!.role)){
+        currentUserRoutes.push(route)
+      }
+    }
+
+    return currentUserRoutes;
+    // this.loggedInUser?.role
+  }
 
   // getExpiration() {
   //   const expiration : any = localStorage.getItem("expires_at");

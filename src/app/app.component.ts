@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { SlideService } from './shared/components/slide-menu/slide.service';
-import { AgentService } from './shared/services/agent.service';
 import { NavigationEnd, NavigationStart, Router } from '@angular/router';
 import { AuthService } from './shared/services/auth-services/auth.service';
 
@@ -23,16 +21,21 @@ export class AppComponent implements OnInit{
   addClassMain: boolean = true;
   navbarTitle!: string;
 
+  // this.authService.getUserMenuItems();
   appRoutes: Route[] = [
-    {caption: 'Home', route: 'home', icon: 'home'},
-    {caption: 'Current Queue', route: 'in-queue', icon: 'queue_play_next'},
-    {caption: 'Settings', route: 'settings', icon: 'settings'},
-    {caption: 'Log out', route: 'login', icon: 'remove_circle_outline'},
+    // {caption: 'Home', route: 'home', icon: 'home'},
+    // {caption: 'Current Queue', route: 'in-queue', icon: 'queue_play_next'},
+    // {caption: 'Settings', route: 'settings', icon: 'settings'},
+    // {caption: 'Log out', route: 'login', icon: 'remove_circle_outline'},
   ]
-  constructor(private agentService: AgentService, private router: Router, private authService: AuthService){}
+  constructor(
+    // private agentService: AgentService,
+    private router: Router,
+    private authService: AuthService
+    ){}
 
   ngOnInit(): void {
-    this.isMobile = this.agentService.isAgentFromMobileDevice()
+    // this.isMobile = this.agentService.isAgentFromMobileDevice()
 
     this.router.events.subscribe(val => {
       if(val instanceof NavigationEnd){
@@ -42,6 +45,7 @@ export class AppComponent implements OnInit{
         }else{
           this.showNav = true
           this.addClassMain = true
+          this.appRoutes = this.authService.getUserMenuItems();
 
         }
       }
@@ -68,4 +72,18 @@ export class AppComponent implements OnInit{
     this.router.navigate([route])
   }
 
+  toggleTheme(themeColor: string){
+
+    if(document.body.classList.contains(themeColor)){
+      return
+    }
+    document.body.classList.toggle("light");
+    document.body.classList.toggle("dark");
+    // document.body.classList.toggle(Mode.DARK);
+    // if (this.currentMode === Mode.LIGHT) {
+    //   this.updateCurrentMode(Mode.DARK);
+    // } else {
+    //   this.updateCurrentMode(Mode.LIGHT);
+    // }
+  }
 }
