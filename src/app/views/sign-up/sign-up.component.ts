@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
 import { RegisterForm } from 'src/app/shared/models/interfaces/form.model';
 import { AuthService } from 'src/app/shared/services/auth-services/auth.service';
+import { matchPassword } from 'src/app/shared/services/validators/match-password.validator';
 
 @Component({
   selector: 'app-sign-up',
@@ -14,7 +14,6 @@ export class SignUpComponent implements OnInit {
   registerForm!: FormGroup;
 
   constructor(
-    router: Router,
     private authService: AuthService
   ){}
 
@@ -25,20 +24,20 @@ export class SignUpComponent implements OnInit {
   initKPIForm(){
     this.registerForm = new FormGroup({
       username: new FormControl("", Validators.required),
-      password: new FormControl("", Validators.required)
+      password: new FormControl("", Validators.required),
+      confirmPassword: new FormControl("", Validators.required),
+    }, {
+      validators: matchPassword
     })
   }
 
   signUp(){
-
     let formData: RegisterForm = {
       username: this.registerForm.get('username')?.value,
       password: this.registerForm.get('password')?.value,
       queue: null,
       serviceProvider: null
     };
-
-    console.log("The form data is :", formData);
 
     this.authService.registerUser(formData).subscribe(res => {
       console.log("Register Sub Response: ", res)

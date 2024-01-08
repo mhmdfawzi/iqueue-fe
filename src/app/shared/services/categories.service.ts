@@ -5,8 +5,9 @@ import { Observable } from 'rxjs';
 import { Category } from '../models/interfaces/categories.model';
 
 export interface CategoriesResponse{
-  success: boolean,
-  data: Category[]
+  data: Category[],
+  statusCode: number,
+  message: string
 }
 
 @Injectable({
@@ -21,7 +22,7 @@ export class CategoriesService{
    * @returns returns a Categories array
    */
   getCategories(): Observable<CategoriesResponse>{
-    return this.generalService.getAPIData<CategoriesResponse>(`${environment.apiUrl}/spCategories`)
+    return this.generalService.getAPIData<CategoriesResponse>(`${environment.apiUrl}category/list`)
   }
 
 }

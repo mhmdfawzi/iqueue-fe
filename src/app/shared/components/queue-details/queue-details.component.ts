@@ -1,7 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { QueueResponse, ResponseManagers, ServiceProviderOwnerService } from '../../services/sp-owner.service';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, FormGroupDirective, Validators } from '@angular/forms';
 import { Queue } from '../../models/interfaces/queue.model';
 import { AuthService } from 'src/app/shared/services/auth-services/auth.service';
 import { QueuesResponse } from '../../services/profile.service';
@@ -53,14 +53,13 @@ export class QueueDetailsComponent implements OnInit{
     this.queueForm = new FormGroup({
       name: new FormControl("", Validators.required),
       manager: new FormControl("", Validators.required),
-      serviceProvider: new FormControl(this.serviceProvider._id),
+      serviceProvider: new FormControl(this.serviceProvider?.id),
       createdBy: new FormControl(this.authService.loggedInUser?.id),
     })
   }
 
   fetchManagers(){
-    this.spOwnerService.getManagers(this.serviceProvider._id).subscribe( (res: ResponseManagers) => {
-      console.log("Got these managers", res)
+    this.spOwnerService.getManagers(this.serviceProvider?.id).subscribe( (res: ResponseManagers) => {
       this.managers = res.data
     })
   }
@@ -82,8 +81,15 @@ export class QueueDetailsComponent implements OnInit{
     }
 
     this.spOwnerService.postQueue(queueData).subscribe( (res: QueueResponse) => {
-      console.log("Response of creating a queue", res )
       this.router.navigate(["home"])
     })
+  }
+
+  isFormValid(form: FormGroupDirective): boolean{
+    if(form.valid){
+      return true
+    }else{
+      return false
+    }
   }
 }

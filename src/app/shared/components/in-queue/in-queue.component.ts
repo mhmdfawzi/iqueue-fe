@@ -24,14 +24,17 @@ export class InQueueComponent implements OnInit{
     this.reservationId = this.route.snapshot.queryParams["reservationId"]
 
     this.profileService.reservationDetails(this.reservationId).subscribe((res:ReservationResponse) => {
-      console.log("response of reservation details :  ", res)
       this.reservationDetails = res.data
     })
   }
 
   cancelQueue(){
+    //Later we should implement a function to cancel the queue then nav to home
     this.router.navigate(["/basic/home"])
   }
 
+  navToHome(){
+    this.router.navigate(["/home"])
+  }
 
 }

@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ProfileService } from 'src/app/shared/services/profile.service';
+import { ProfileService, Provider, ProvidersResponse } from 'src/app/shared/services/profile.service';
 import { Observable, Subscription } from 'rxjs';
 import { ServiceProvider } from 'src/app/shared/models/interfaces/sp.model';
 import { LoggedUser } from 'src/app/shared/services/auth-services/auth.service';
@@ -16,10 +16,10 @@ export class ReserverProfileComponent implements OnInit {
   // public serviceProviders$!: Observable<any[]>;
   @Input({required: true}) loggedInUser!: LoggedUser | null;
 
-  providers!: ServiceProvider[];
-  allProviders!: ServiceProvider[];
+  providers!: Provider[];
+  allProviders!: Provider[];
 
-  activeCategory!: string | undefined;
+  activeCategory: number = 0;
 
   providersSub!: Subscription;
 
@@ -35,36 +35,34 @@ export class ReserverProfileComponent implements OnInit {
 
 
   onSearchChange(text: any){
-    console.log("The text in input", text)
-
     this.providers = this.allProviders.filter(el => el.name.includes(text))
   }
 
   fetchCategories(){
     this.categoriesService.getCategories().subscribe( (res: CategoriesResponse) => {
+      console.log("LOGGER getCategories!", res)
       this.serviceProvidersCategories = res.data
+      this.serviceProvidersCategories.unshift({id: 0, name: "All"})
+      this.activeCategory = 0;
+
     })
   }
 
-  fetchServiceProviders(categoryID?: string){
-
-    if(this.activeCategory === categoryID){
-      this.activeCategory = undefined;
-      categoryID = undefined
+  fetchServiceProviders(categoryID?: number){
+    if(this.activeCategory === categoryID || categoryID === 0){
+      this.activeCategory = 0;
+      // categoryID = undefined
     }else{
-      this.activeCategory = categoryID;
+      if(categoryID){
+        this.activeCategory = categoryID;
+      }
     }
 
-    this.providersSub = this.profileService.getProviders(categoryID).subscribe((res:any) => {
+    this.providersSub = this.profileService.getProviders(categoryID).subscribe((res:ProvidersResponse) => {
 
-      console.log("The res", res)
-
+      console.log("LOGGER !", res)
       this.providers = res.data
       this.allProviders = res.data
-
-      console.log(" the providers ! ::", res.data)
-    }, err => {
-      console.log("Got an err fetching the providers ! ::", err)
     })
   }
 }

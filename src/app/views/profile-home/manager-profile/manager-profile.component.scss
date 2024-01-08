@@ -1,5 +1,11 @@
 @import "../../../../scss/variables.scss";
 
+app-small-button{
+
+  margin: 0px 5px;
+}
+
+
 .inactive-btn{
   opacity: 0.5;
   pointer-events: none;
@@ -8,18 +14,23 @@
   padding: 20px;
   text-align: center;
   font-weight: bold;
-  background-color: var(--tilesBgColor);
+  background-color: var(--secondaryBgColor);
   border-radius: var(--badgeBorderRadius);
   -webkit-box-shadow: -10px 5px 18px -10px rgba(0,0,0,0.75);
   -moz-box-shadow: -10px 5px 18px -10px rgba(0,0,0,0.75);
   box-shadow: var(--smallShadow);
+  color: black;
+  max-width: 500px;
+  margin: auto!important;
 
 }
 
 .actions-section{
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-end;
   padding: 10px;
+  margin-bottom: 10px;
+
 }
 
 .reservations-holder{

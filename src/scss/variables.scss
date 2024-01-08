@@ -9,6 +9,7 @@
 
   --roseColor: #FA9884;
   --roseDarkColor: #E74646;
+  --roseDarkerColor: #a02727;
 
   --taburGrey: #897E73;
   --taburGreyLemonLight: #EEF3E9;
@@ -24,6 +25,8 @@
   --secondaryTitleSize: 20px;
 
   --smallShadow: -7px 5px 9px -10px rgba(0,0,0,0.75);
+  --alternativeShadow : 3px 4px 0px -1px rgb(150 150 150 / 75%);
+
 
 }
 
@@ -38,6 +41,8 @@ $h2Size: 3.5rem;
 
 $bgColor_light: white;
 $bgColor_dark: #19252c;
+$bgColor_secondary_light: #EEF3E9;
+$bgColor_secondary_dark: #2b4a5c;
 
 $textColor_light: black;
 $textColor_dark: white;
@@ -55,6 +60,7 @@ $tilesBgColor_white: #F8F9FB;
   --textColor: #{$textColor_light};
   --borderColor: #{$borderColor_light};
   --tilesBgColor: #{$tilesBgColor_white};
+  --secondaryBgColor: #{$bgColor_secondary_light};
 }
 
 // mixin that enables css variables in dark mode
@@ -63,4 +69,5 @@ $tilesBgColor_white: #F8F9FB;
   --textColor: #{$textColor_dark};
   --borderColor: #{$borderColor_dark};
   --tilesBgColor: #{$tilesBgColor_dark};
+  --secondaryBgColor: #{$bgColor_secondary_dark};
 }

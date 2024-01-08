@@ -37,11 +37,9 @@ export class LoginComponent implements OnInit { //extends BaseFormComponent
 
     this.authService.loginUser(formData).subscribe((res: ResponseLogin) => {
 
-      console.log("Login Sub Response: ", res)
-      this.authService.handleSuccessfulLogin(res) // Sending the Response of JWT for parsing and emitting the user to the APP
+      console.log("THE RES", res)
+      this.authService.handleSuccessfulLogin(res.data.token) // Sending the Response of JWT for parsing and emitting the user to the APP
 
-    }, err => { // TODO Handle the FAIL to LOGIN scenario ! (Show err msg or toaster)
-      console.log("Got an error on Login", err)
     })
   }
 }

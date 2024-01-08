@@ -16,13 +16,13 @@ import { DocumentsComponent } from './views/documents/documents.component';
 import { LoginComponent } from './views/login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProfileHomeComponent } from './views/profile-home/profile-home/profile-home.component';
-import { SlideMenuComponent } from './shared/components/slide-menu/slide-menu.component';
 import { TabsBarComponent } from './layout/tabs-bar/tabs-bar.component';
 import { SignUpComponent } from './views/sign-up/sign-up.component';
 
 // Interceptors
 import { HttpInterceptorService } from './shared/services/HttpInterceptors/http-interceptor.service';
-import { AuthGuardService } from './shared/services/guards/auth-guard.service';
+import { ErrorInterceptor } from './shared/services/HttpInterceptors/error-interceptor.service';
+import { CustomToastComponent } from './layout/custom-toast/custom-toast.component';
 
 @NgModule({
   declarations: [
@@ -33,9 +33,9 @@ import { AuthGuardService } from './shared/services/guards/auth-guard.service';
     DocumentsComponent,
     LoginComponent,
     ProfileHomeComponent,
-    SlideMenuComponent,
     TabsBarComponent,
-    SignUpComponent
+    SignUpComponent,
+    CustomToastComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +46,7 @@ import { AuthGuardService } from './shared/services/guards/auth-guard.service';
     MatSidenavModule
     // CookieModule.withOptions()
   ],
-  providers: [{provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true}, AuthGuardService],
+  providers: [{provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true}, {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

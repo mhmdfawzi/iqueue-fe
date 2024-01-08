@@ -4,7 +4,7 @@ button{
   width: 105px;
   background-color: var(--roseDarkColor);
   border: none;
-  padding: 7px 0px 7px 0px;
+  padding: 12px 0px;
   border-radius: var(--primaryBtnBorderRadius);
   color: white;
   font-weight: 500;
@@ -13,4 +13,10 @@ button{
 
 .inactive{
   background-color: var(--taburGreyBiege);
+}
+
+button:disabled{
+  opacity: 0.5;
+  pointer-events: none;
+
 }

@@ -36,7 +36,7 @@ export class QueueManagerService {
    * @returns returns the Queue details and its reservations
    */
   getQueueReservationsByManagerID(managerID: string): Observable<QueuesDetailsResponse>{
-    return this.generalService.getAPIData<QueuesDetailsResponse>(`${environment.apiUrl}/reservations/manager/${managerID}`)
+    return this.generalService.getAPIData<QueuesDetailsResponse>(`${environment.apiUrl}/queue/manager/${managerID}`)
     // return this.generalService.getAPIData<QueuesDetails>(`${environment.apiUrl}/reservations/queue/${id}`)
   }
 
@@ -46,12 +46,12 @@ export class QueueManagerService {
    * @returns returns the Queue details and its reservations
    */
     getQueueReservationsByQueueID(queueID: string): Observable<QueuesDetailsResponse>{
-      return this.generalService.getAPIData<QueuesDetailsResponse>(`${environment.apiUrl}/reservations/queue/${queueID}`)
+      return this.generalService.getAPIData<QueuesDetailsResponse>(`${environment.apiUrl}queue/${queueID}/reservations`)
       // return this.generalService.getAPIData<QueuesDetails>(`${environment.apiUrl}/reservations/queue/${id}`)
     }
 
   moveQueue(id: string){
-    return this.generalService.putAPIData(`${environment.apiUrl}/queues/moveNext/${id}`, {})
+    return this.generalService.putAPIData(`${environment.apiUrl}/queue/moveNext/${id}`, {})
   }
 
   /**
@@ -61,5 +61,25 @@ export class QueueManagerService {
    */
   toggleQueue(id : string): Observable<QueueToggleResponse>{
     return this.generalService.putAPIData<QueueToggleResponse>(`${environment.apiUrl}/queues/toggle/${id}`, null)
+  }
+
+    /**
+   *
+   * @param id pass the id of the queue to have it toggled on
+   *  @returns returns the queue details and wither it's active or not
+   */
+  toggleQueueOn(id : string){
+    return this.generalService.putAPIData<QueueToggleResponse>(`${environment.apiUrl}queue/activate/${id}`, null)
+
+  }
+
+    /**
+   *
+   * @param id pass the id of the queue to have it toggled off
+   *  @returns returns the queue details and wither it's active or not
+   */
+  toggleQueueOff(id : string){
+    return this.generalService.putAPIData<QueueToggleResponse>(`${environment.apiUrl}/queues/toggle/${id}`, null)
+
   }
 }

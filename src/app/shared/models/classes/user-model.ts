@@ -15,8 +15,6 @@ export class SystemUser{
     const user = this.jwtParser(jwtString) // Decoded JWT
     const {id, username, role, iat, exp, fullname, phone} = user // Destructuring the object
 
-    console.warn("El user", user)
-
     //Assigning vars :
     this.id = id;
     this.username = username;

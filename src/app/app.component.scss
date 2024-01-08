@@ -7,9 +7,16 @@ p{
   flex-direction: column;
 }
 
+.close-drawer{
+  position: absolute;
+  right: 6%;
+  top: 2%;
+  color: var(--roseDarkColor);
+}
+
 mat-drawer {
   width: 80%;
-  max-width: 500px;
+  max-width: 350px;
   background-color: var(--bgColor);
 }
 
@@ -17,15 +24,20 @@ mat-icon{
   margin-right: 10px;
 }
 
+
+
 .route-item{
   display: flex;
   align-items: flex-end;
   font-size: 18px;
   font-weight: 500;
-  border-bottom: 1px solid black;
   padding: 20px;
-  padding-left: 12px;
+  padding-left: 25px;
   color: var(--roseDarkColor);
+}
+
+.active-route{
+  border-left: 10px solid;
 }
 
 .theme-item{
@@ -52,4 +64,12 @@ mat-icon{
   .white-color-rect{
     background-color: white;
   }
+}
+
+
+
+.hr-border{
+  width: 80%;
+  margin: 18px auto;
+  color: var(--textColor);
 }

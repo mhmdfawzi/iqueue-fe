@@ -4,13 +4,13 @@
   <app-input [label]="'Search'" [placeholder]="'Search'" (currentText)="onSearchChange($event)"></app-input>
 
   <div class="categories-row py-3">
-    <app-category-badge class="mx-3" *ngFor="let category of serviceProvidersCategories" [category]="category" (categoryClicked)="fetchServiceProviders($event)" [active]="activeCategory === category._id"></app-category-badge>
+    <app-category-badge class="mx-2" *ngFor="let category of serviceProvidersCategories" [category]="category" (categoryClicked)="fetchServiceProviders($event)" [active]="activeCategory === category.id || (activeCategory === undefined && category.id === 0)"></app-category-badge>
   </div>
 
-  <div class="service-providers-row">
+  <div class="service-providers-row row">
 
     <ng-container *ngIf="loggedInUser">
-      <div class="service-provider-holder m-3" *ngFor="let card of providers; let i = index">
+      <div class="service-provider-holder my-3 col-xs-12 col-sm-6 col-md-4" *ngFor="let card of providers; let i = index">
         <app-service-provider-card [serviceProviderData]="card" [thumbnailId]="i" [loggedInUser]="loggedInUser" ></app-service-provider-card>
       </div>
 

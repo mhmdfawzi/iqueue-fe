@@ -4,8 +4,8 @@
 
   <div class="sp-card">
 
-    <div class="sp-card-img" > <!-- style="background-image: url('/assets/imgs/{{thumbnailId}}.jpg')" -->
-      <img [src]="serviceProviderData.logo" />
+    <div class="sp-card-img" [style]="'background-image: url(' + serviceProviderData.logo + ')'"> <!-- style="background-image: url('/assets/imgs/{{thumbnailId}}.jpg')" -->
+      <!-- <img [src]="serviceProviderData.logo" /> -->
     </div>
 
     <div class="sp-card-details">

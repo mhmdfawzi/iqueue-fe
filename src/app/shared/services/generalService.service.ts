@@ -49,12 +49,6 @@ export class GeneralService {
           break
         }
 
-        case 401:{
-          //Logic should be put here
-          console.log(" Found 401 error : ", err)
-          break
-        }
-
         case 403:{
           //Logic should be put here
           console.log(" Found 403 error : ", err)

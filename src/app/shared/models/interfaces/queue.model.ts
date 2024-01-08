@@ -4,7 +4,7 @@ import { ServiceProvider } from "./sp.model";
 import { BasicUser, User } from "./user.model";
 
 export interface Queue{
-  _id: string,
+  id: string,
   name: string,
   serviceProvider: ServiceProvider,
   manager: Manager,

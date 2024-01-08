@@ -1,42 +1,26 @@
 @import "../../../../scss/variables.scss";
 
 
-// .sp-name{
-//   font-size: 18px;
-
-//   p{
-//     font-weight: bold;
-//     text-align: center;
-//     padding: 20px;
-//   }
-// }
-
-// .button-row{
-//   display: flex;
-//   justify-content: center;
-
-//   button{
-//     color: $redHighlightedText;
-//   }
-// }
-
 .holder{
-  border: 3px solid var(--taburGreyBiege);
-  border-radius: 12px;
+  // border: 3px solid var(--taburGreyBiege);
+  border-radius: var(--mainBorderRadius);
   padding: 5px;
-  background-color: var(--taburGreyLemonLight);
+  background-color: var(--secondaryBgColor);
 }
 
 img{
   width: 100%;
+  border-radius: 12px;
+  height: 300px;
 }
 
 .sp-card-img{
   height: 300px;
-  width: 300px;
+  width: 100%;
   background-size: cover;
-  background-position: center;
   background-repeat: no-repeat;
+  background-position: center;
+  border-radius: var(--mainBorderRadius);
 }
 
 .sp-card-details{
@@ -48,4 +32,23 @@ img{
 
 .button-row{
   text-align: center;
+}
+
+@media screen and (min-width: 480px) {
+  img{
+    width: 100%;
+    border-radius: 12px;
+
+  }
+
+  .sp-card-img{
+    height: 300px;
+    // width: 100%;
+    // background-size: cover;
+    // background-repeat: no-repeat;
+    // background-position: center;
+    // background-size: cover;
+    // background-position: center;
+    // background-repeat: no-repeat;
+  }
 }

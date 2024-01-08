@@ -1,14 +1,18 @@
-<h3 class="intro-text">Current Queues</h3>
 
-<div class="service-providers-holder">
+<div class="container">
+  <h3 class="intro-text">Current Queues</h3>
 
-  <div class="service-provider-holder" *ngFor="let q of queues; let i = index">
-    <app-queue-card [queue]="q" [index]="i"></app-queue-card>
+  <div class="add-queue-holder">
+    <!-- <button class="btn active-primary-btn text-center">Create Queue</button> -->
+    <app-small-button [txt]="'Add a queue'" (btnClicked)="navToDetails()"></app-small-button>
   </div>
 
-</div>
+  <div class="service-providers-holder row">
 
-<div class="text-center">
-  <!-- <button class="btn active-primary-btn text-center">Create Queue</button> -->
-  <app-small-button [txt]="'Add a queue'" (btnClicked)="navToDetails()"></app-small-button>
+    <div class="service-provider-holder col-xs-12 col-sm-6 col-md-4" *ngFor="let q of queues; let i = index">
+      <app-queue-card [queue]="q" [index]="i"></app-queue-card>
+    </div>
+
+  </div>
+
 </div>

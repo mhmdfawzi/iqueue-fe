@@ -22,10 +22,12 @@
         <app-input [label]="'Email Address'" [placeholder]="'ex@tabur.com'"></app-input>
         <app-input [label]="'Phone Number'" [type]="'number'"></app-input>
         <app-input [label]="'Password'" [type]="'password'" formControlName="password"></app-input>
+        <app-input [label]="'Confirm Password'" [type]="'password'" formControlName="confirmPassword"></app-input>
+        <p *ngIf="registerForm.errors?.['passwordMatchError']" class="form-error">Password confirmation didn't match</p>
       </div>
 
       <div class="actions-section">
-        <app-wide-button [txt]="'Create Account'" (btnClicked)="signUp()"></app-wide-button>
+        <app-wide-button [txt]="'Create Account'" (btnClicked)="signUp()" [disableBtn]="registerForm.invalid"></app-wide-button>
         <p class="sign-up-hint pt-3">have an account? <span class="sign-up-route" routerLink="/login">Sign in</span></p>
       </div>
     </form>

@@ -7,7 +7,7 @@
 
   <div class="profile-holder" *ngIf="loggedInUser">
     <!-- Each component of profile-types should not be added to the DOM, unless one condition is met-->
-    <app-reserver-profile *ngIf="loggedInUser.role === 'basic'" [loggedInUser]="loggedInUser"></app-reserver-profile>
+    <app-reserver-profile *ngIf="loggedInUser.role === 'basic' || loggedInUser.role === 'customer' " [loggedInUser]="loggedInUser"></app-reserver-profile>
     <app-owner-profile *ngIf="loggedInUser.role === 'owner'" [loggedInUser]="loggedInUser"></app-owner-profile>
     <app-manager-profile *ngIf="loggedInUser.role === 'manager'" [loggedInUser]="loggedInUser"></app-manager-profile>
     <app-admin-profile *ngIf="loggedInUser.role === 'admin'" [loggedInUser]="loggedInUser"></app-admin-profile>

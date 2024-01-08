@@ -28,7 +28,6 @@ export class OwnerProfileComponent implements OnInit{
       // this.handleQueues();
       this.spOwnerService.serviceProvider = this.serviceProvider
 
-      console.log("Queues", this.queues)
     })
   }
 
@@ -92,7 +91,7 @@ export class OwnerProfileComponent implements OnInit{
 
   navToDetails(index?: number){
     if(index){
-      this.router.navigate(["queue-details"], {queryParams : {id: this.queues[index]._id}})
+      this.router.navigate(["queue-details"], {queryParams : {id: this.queues[index].id}})
     }else{
       this.router.navigate(["queue-details"])
     }

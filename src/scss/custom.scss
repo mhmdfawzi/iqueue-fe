@@ -3,7 +3,8 @@
 .main{
   background-color: var(--bgColor);
   color: var(--textColor);
-  height: 100vh;
+  height: 100%;
+  min-height: 100vh;
   padding: 10px;
 }
 

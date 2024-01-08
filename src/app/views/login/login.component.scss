@@ -35,6 +35,10 @@
   padding-top: 10%;
   height: 60vh;
 
+  form{
+    max-width: 500px;
+    margin: auto;
+  }
 
   .remember-row{
     align-items: center;
@@ -51,6 +55,8 @@
 
   .actions-section{
     padding-bottom: 5%;
+    text-align: center;
+
   }
 }
 
@@ -68,4 +74,19 @@ form{
   flex-direction: column;
   justify-content: space-between;
 
+}
+
+@media screen and (min-width: 480px) {
+  .form{
+
+    .actions-section{
+      padding-bottom: 30%;
+      text-align: center;
+
+    }
+  }
+
+  form{
+    justify-content: space-around;
+  }
 }

@@ -5,8 +5,12 @@
     <!-- Here you can put the content of the slider or drawer -->
 
     <div class="tabur-drawer-list">
-      <p class="route-item" *ngFor="let routeItem of appRoutes" (click)="drawer.close(); navigate(routeItem.route)"><mat-icon>{{routeItem.icon}}</mat-icon> <span>{{routeItem.caption}}</span> </p>
+      <span class="close-drawer" (click)="drawer.close()"><mat-icon>arrow_back_ios</mat-icon></span>
 
+      <p class="route-item tabur-title">Tabur</p>
+      <p class="route-item" *ngFor="let routeItem of appRoutes" (click)="drawer.close(); navigate(routeItem.route)" [ngClass]="{'active-route' : isActive(routeItem.route)}"><mat-icon>{{routeItem.icon}}</mat-icon> <span>{{routeItem.caption}}</span> </p>
+
+      <hr class="hr-border">
       <div class="route-item theme-item">
         <p>Theme color</p>
         <div class="black-color-rect" (click)="toggleTheme('dark')"></div>
@@ -27,3 +31,5 @@
   </div>
 
 </mat-drawer-container>
+
+<app-custom-toast></app-custom-toast>

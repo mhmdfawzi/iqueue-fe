@@ -1,7 +1,7 @@
 <div class="queue-details">
-  <p class="intro-text">{{introText}}</p>
+  <p class="intro-text">{{introText}} <app-small-button [txt]="'Submit Queue'" (btnClicked)="submitQueue()" [disableBtn]="!isFormValid(formVar)"></app-small-button> </p>
   <div class="form">
-    <form [formGroup]="queueForm">
+    <form [formGroup]="queueForm" #formVar="ngForm">
       <app-input [type]="'text'" formControlName="name" [label]="'Queue name'"></app-input>
       <!-- <app-input [type]="'text'" formControlName="manager" [label]="'Manager'"></app-input> -->
       <mat-form-field>
@@ -14,6 +14,6 @@
       </mat-form-field>
     </form>
 
-    <app-wide-button [txt]="'Submit Queue'" (btnClicked)="submitQueue()"></app-wide-button>
+    <!-- <app-wide-button [txt]="'Submit Queue'" (btnClicked)="submitQueue()"></app-wide-button> -->
   </div>
 </div>

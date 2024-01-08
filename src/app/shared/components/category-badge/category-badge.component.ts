@@ -7,13 +7,13 @@ import { Category } from '../../models/interfaces/categories.model';
   styleUrls: ['./category-badge.component.scss']
 })
 export class CategoryBadgeComponent {
-  @Output() categoryClicked: EventEmitter<string> = new EventEmitter<string>();
+  @Output() categoryClicked: EventEmitter<number> = new EventEmitter<number>();
 
   @Input({required: true}) category!: Category;
   @Input({required: true}) active: boolean = false;
 
 
-  clickCategory(categoryId: string){
+  clickCategory(categoryId: number){
     this.categoryClicked.emit(categoryId)
   }
 }

@@ -12,11 +12,9 @@ export class QueueCardComponent implements OnInit {
   @Input({required: true}) index!: number;
 
   ngOnInit(): void {
-    console.log("queue card :", this.queue)
 
   }
 
   selfDelete(){
-    console.log("DELETED QUEUE")
   }
 }

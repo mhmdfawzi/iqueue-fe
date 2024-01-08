@@ -24,6 +24,24 @@ export interface ReservingResponse extends TaburHttpRes{ // Response of POSTING 
   data: ReservingDetails
 }
 
+export interface ProvidersResponse {
+  data: Provider[],
+  message: string,
+  statusCode: number
+}
+export interface Provider {
+  address: string,
+  description: string,
+  id: number,
+  lat: number,
+  logo: string,
+  long: number,
+  name: string,
+  phone: string,
+  workingDays: string,
+  workingHours: string
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -33,24 +51,27 @@ export class ProfileService {
     private generalService: GeneralService
   ) {}
 
-  getProviders(category?: string, published: boolean= true){
+  getProviders(category?: number, published: boolean= true): Observable<ProvidersResponse>{
 
     if(category){
-      return this.generalService.getAPIData(`${environment.apiUrl}/serviceProviders?published=true&category=${category}`)
+      // return this.generalService.getAPIData(`${environment.apiUrl}serviceProviders?published=true&category=${category}`)
+      return this.generalService.getAPIData<ProvidersResponse>(`${environment.apiUrl}provider/list?categoryId=${category}`)
+
     }else{
-      return this.generalService.getAPIData(`${environment.apiUrl}/serviceProviders?published=true`)
+      // return this.generalService.getAPIData(`${environment.apiUrl}serviceProviders?published=true`)
+      return this.generalService.getAPIData<ProvidersResponse>(`${environment.apiUrl}provider/list`)
     }
   }
 
   reserve(reserverData: ReserverModel): Observable<ReservingResponse>{
-    return this.generalService.postAPIData<ReservingResponse>(`${environment.apiUrl}/reservations`, reserverData)
+    return this.generalService.postAPIData<ReservingResponse>(`${environment.apiUrl}reservation`, reserverData)
   }
 
   reservationDetails(id: string): Observable<ReservationResponse>{
-    return this.generalService.getAPIData<ReservationResponse>(`${environment.apiUrl}/reservations/${id}`)
+    return this.generalService.getAPIData<ReservationResponse>(`${environment.apiUrl}reservation/info/${id}`)
   }
 
-  getServiceProviderQueues(id: string): Observable<QueuesResponse>{
-    return this.generalService.getAPIData<QueuesResponse>(`${environment.apiUrl}/queues/serviceProvider/${id}`)
+  getServiceProviderQueues(id: number): Observable<QueuesResponse>{
+    return this.generalService.getAPIData<QueuesResponse>(`${environment.apiUrl}queue/list?providerId=${id}`)
   }
 }

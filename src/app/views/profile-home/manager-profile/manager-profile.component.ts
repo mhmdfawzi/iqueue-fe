@@ -26,32 +26,28 @@ export class ManagerProfileComponent implements OnInit {
 
   callQueueReservations(){
     this.qManager.getQueueReservationsByManagerID(this.authService.loggedInUser?.id!).subscribe((res:QueuesDetailsResponse) => {
-      console.log("Reservation QUEUE :", res)
       // this.queueReservations = res.data.reservations
       this.queue = res.data.queue
 
-      this.qManager.getQueueReservationsByQueueID(this.queue._id).subscribe((res:any) => {
+      this.qManager.getQueueReservationsByQueueID(this.queue.id).subscribe((res:any) => {
         this.queueReservations = res.data
       })
     })
   }
 
   moveNext(){
-    this.qManager.moveQueue(this.queue._id).subscribe(res => {
-      console.log("Moving a queue (response)", res);
+    this.qManager.moveQueue(this.queue.id).subscribe(res => {
 
       this.callQueueReservations()
     })
   }
 
   toggleQueue(){
-    console.log("Clicked")
 
     //Keepings this code for optimistic UI reflection.
     this.queueStatus === "open" ? this.queueStatus = "closed" : this.queueStatus = "open" // <<
 
-    this.qManager.toggleQueue(this.queue._id).subscribe((res: QueueToggleResponse) => {
-      console.log("res", res)
+    this.qManager.toggleQueue(this.queue.id).subscribe((res: QueueToggleResponse) => {
       res.data.isActive === true ? this.queueStatus = "open" : this.queueStatus = "closed";
     })
   }

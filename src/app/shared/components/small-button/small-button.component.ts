@@ -10,7 +10,7 @@ export class SmallButtonComponent {
   @Output() btnClicked: EventEmitter<any> = new EventEmitter;
   @Input() txt!: string;
   @Input() active: boolean = true; // pass false to show different background color to indicate inactive status
-
+  @Input() disableBtn: boolean = false;
 
   clickBtn(){
     this.btnClicked.emit()

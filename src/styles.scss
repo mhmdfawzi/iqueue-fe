@@ -4,16 +4,37 @@
 
 /* Each view page should start with MAIN class, each component should start with HOLDER class*/
 
+html, body{
+  min-height: 100vh;
+
+}
+
 body{
-  font-family: 'Dosis', sans-serif;
+  font-family: 'Dosis', sans-serif!important;
   // background-color: #c2c2c2;
 }
+
 
 .row{
   margin: 0;
   padding: 0;
 }
 
+.container{
+  padding: 0 6%;
+}
+
+body.dark{
+  .black-color-rect {
+    box-shadow: var(--alternativeShadow);
+  }
+}
+
+body.light{
+  .white-color-rect{
+    box-shadow: var(--alternativeShadow);
+  }
+}
 
 // html, body { height: 100%; }
 // body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
@@ -33,3 +54,8 @@ body.light {
 
 }
 
+@media screen and (min-width: 480px) {
+  .container{
+    padding: 0 10%;
+  }
+}

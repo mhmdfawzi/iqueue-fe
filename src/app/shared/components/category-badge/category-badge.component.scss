@@ -2,11 +2,12 @@
 span{
 
   display: inline-block;
-  border: 1px solid var(--taburGreyBiege);
+  // border: 1px solid var(--taburGreyBiege);
   padding: 12px;
   border-radius: var(--badgeBorderRadius);
-  font-weight: bold;
-  background-color: var(--taburGreyLemonLight);
+  font-weight: 500;
+  background-color: var(--secondaryBgColor);
+  font-size: 17px;
 }
 
 .active{

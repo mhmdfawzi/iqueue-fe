@@ -2,4 +2,8 @@
   font-weight: bold;
   font-size: 16px;
   color: var(--roseDarkColor);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
 }

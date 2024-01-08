@@ -3,18 +3,24 @@
   font-size: 20px;
   font-weight: bold;
   text-align: center;
-  padding-top: 50px;
+  padding-top: 15px;
   color: var(--roseDarkColor);
 }
 
+.add-queue-holder{
+  text-align: end;
+}
 
+.service-providers-holder{
+  justify-content: space-evenly;
+}
 
 .service-provider-holder{
   padding: 10px;
   width: 340px;
   max-width: 500px;
-  background-color: var(--taburGreyLemonLight);
+  background-color: var(--secondaryBgColor);
   border-radius: 12px;
-  margin: 30px auto;
+  margin: 20px 0px;
 
 }

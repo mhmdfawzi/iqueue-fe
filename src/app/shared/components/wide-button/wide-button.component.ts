@@ -9,6 +9,7 @@ export class WideButtonComponent {
 
   @Output() btnClicked: EventEmitter<any> = new EventEmitter;
   @Input() txt!: string;
+  @Input() disableBtn: boolean = false;
 
 
   clickBtn(){

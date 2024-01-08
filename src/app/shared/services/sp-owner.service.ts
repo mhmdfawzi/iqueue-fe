@@ -42,12 +42,9 @@ export class ServiceProviderOwnerService {
    * @returns service provider details and the queues
    */
   getQueues(ownerID: string | number): Observable<QueuesResponse>{
-    return this.generalService.getAPIData<QueuesResponse>(`${environment.apiUrl}/serviceProviders/owner/${ownerID}/queues`)
+    // return this.generalService.getAPIData<QueuesResponse>(`${environment.apiUrl}/serviceProviders/owner/${ownerID}/queues`)
+    return this.generalService.getAPIData<QueuesResponse>(`${environment.apiUrl}provider/owner/${ownerID}`)
   }
-
-  // getQueues(serviceProviderID: string | number): Observable<QueuesResponse>{
-  //   return this.generalService.getAPIData<QueuesResponse>(`${environment.apiUrl}/queues/serviceProvider/${serviceProviderID}`)
-  // }
 
   /**
    * This method returns details of one queue.
@@ -55,11 +52,11 @@ export class ServiceProviderOwnerService {
    * @returns Queue details
    */
   getQueue(queueID: string | number): Observable<QueueResponse>{
-    return this.generalService.getAPIData<QueueResponse>(`${environment.apiUrl}/queues/${queueID}`)
+    return this.generalService.getAPIData<QueueResponse>(`${environment.apiUrl}queue/manager/${queueID}`)
   }
 
   putQueue(queueID: string | number, queueData: Queue){
-    return this.generalService.putAPIData(`${environment.apiUrl}/queues/${queueID}`, queueData)
+    return this.generalService.putAPIData(`${environment.apiUrl}/queue/${queueID}`, queueData)
   }
 
     /**
@@ -72,7 +69,7 @@ export class ServiceProviderOwnerService {
   }
 
   deleteQueue(queueID: string){
-    return this.generalService.deleteAPIData(`${environment.apiUrl}/queues/${queueID}`)
+    return this.generalService.deleteAPIData(`${environment.apiUrl}/queue/${queueID}`)
   }
 
   /**
@@ -80,7 +77,7 @@ export class ServiceProviderOwnerService {
    * @param spID pass the Service provider ID
    * @returns Managers available for this Service provider
    */
-  getManagers(spID: string): Observable<ResponseManagers>{
-    return this.generalService.getAPIData<ResponseManagers>(`${environment.apiUrlAuth}/managers/${spID}`)
+  getManagers(spID: number): Observable<ResponseManagers>{
+    return this.generalService.getAPIData<ResponseManagers>(`${environment.apiUrlAuth}user/free/managers/${spID}`)
   }
 }
