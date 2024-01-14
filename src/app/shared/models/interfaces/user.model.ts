@@ -1,5 +1,5 @@
 export interface User{
-  id: string;
+  sub: string;
   username: string;
   role: "basic" | "manager" | "owner" | "admin";
   iat: number;

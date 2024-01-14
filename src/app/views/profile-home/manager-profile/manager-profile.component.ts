@@ -25,7 +25,7 @@ export class ManagerProfileComponent implements OnInit {
   }
 
   callQueueReservations(){
-    this.qManager.getQueueReservationsByManagerID(this.authService.loggedInUser?.id!).subscribe((res:QueuesDetailsResponse) => {
+    this.qManager.getQueueReservationsByManagerID(this.authService.loggedInUser?.sub!).subscribe((res:QueuesDetailsResponse) => {
       // this.queueReservations = res.data.reservations
       this.queue = res.data.queue
 

@@ -21,7 +21,7 @@ export class QueueDetailsComponent implements OnInit{
   state: "add" | "edit" = "add";
   introText: string = "Add form details";
   managers: Manager[] = []
-  selectedManager!: Manager["id"];
+  selectedManager!: Manager["sub"];
 
   queueInView!: Queue;
   queueForm!: FormGroup;
@@ -54,7 +54,7 @@ export class QueueDetailsComponent implements OnInit{
       name: new FormControl("", Validators.required),
       manager: new FormControl("", Validators.required),
       serviceProvider: new FormControl(this.serviceProvider?.id),
-      createdBy: new FormControl(this.authService.loggedInUser?.id),
+      createdBy: new FormControl(this.authService.loggedInUser?.sub),
     })
   }
 

@@ -20,7 +20,7 @@ export interface ResponseLogin {
 export interface LoggedUser {
   username: string;
   role: string;
-  id: string;
+  sub: string;
   iat: number;
   exp: number;
 }

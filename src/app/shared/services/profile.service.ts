@@ -54,17 +54,15 @@ export class ProfileService {
   getProviders(category?: number, published: boolean= true): Observable<ProvidersResponse>{
 
     if(category){
-      // return this.generalService.getAPIData(`${environment.apiUrl}serviceProviders?published=true&category=${category}`)
       return this.generalService.getAPIData<ProvidersResponse>(`${environment.apiUrl}provider/list?categoryId=${category}`)
 
     }else{
-      // return this.generalService.getAPIData(`${environment.apiUrl}serviceProviders?published=true`)
       return this.generalService.getAPIData<ProvidersResponse>(`${environment.apiUrl}provider/list`)
     }
   }
 
   reserve(reserverData: ReserverModel): Observable<ReservingResponse>{
-    return this.generalService.postAPIData<ReservingResponse>(`${environment.apiUrl}reservation`, reserverData)
+    return this.generalService.postAPIData<ReservingResponse>(`${environment.apiUrl}reservations`, reserverData)
   }
 
   reservationDetails(id: string): Observable<ReservationResponse>{

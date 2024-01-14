@@ -3,7 +3,7 @@ import jwt_decode from "jwt-decode";
 
 export class SystemUser{
 
-  id: string;
+  sub: string;
   username: string;
   role: "basic" | "manager" | "owner" | "admin";
   iat: number;
@@ -13,10 +13,10 @@ export class SystemUser{
 
   constructor(jwtString: string){
     const user = this.jwtParser(jwtString) // Decoded JWT
-    const {id, username, role, iat, exp, fullname, phone} = user // Destructuring the object
+    const {sub, username, role, iat, exp, fullname, phone} = user // Destructuring the object
 
     //Assigning vars :
-    this.id = id;
+    this.sub = sub;
     this.username = username;
     this.iat = iat;
     this.role = role;

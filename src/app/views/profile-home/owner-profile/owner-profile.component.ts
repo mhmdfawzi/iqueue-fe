@@ -21,7 +21,7 @@ export class OwnerProfileComponent implements OnInit{
   constructor(private spOwnerService: ServiceProviderOwnerService, private authService: AuthService ,private router: Router){}
 
   ngOnInit(): void {
-    this.spOwnerService.getQueues(this.loggedInUser.id).subscribe( (res: QueuesResponse) => {
+    this.spOwnerService.getQueues(this.loggedInUser.sub).subscribe( (res: QueuesResponse) => {
       this.queues = res.data.queues
       this.serviceProvider = res.data.serviceProvider
       // this.handleSPOwner();

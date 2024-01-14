@@ -18,9 +18,9 @@ export interface Queue{
 
 export interface QueueForm{
   name: string,
-  manager: Manager["id"],
+  manager: Manager["sub"],
   serviceProvider: string,
-  createdBy: Manager["id"]
+  createdBy: Manager["sub"]
 
 }
 
@@ -31,7 +31,7 @@ export interface ReservingDetails{
   queue: string, // Queue ID
   reserver: string, // ID of user
   __v: number,
-  _id: number
+  id: number
 }
 
 export interface ReservationDetails{

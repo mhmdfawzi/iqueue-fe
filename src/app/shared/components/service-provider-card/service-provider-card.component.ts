@@ -27,9 +27,10 @@ export class ServiceProviderCardComponent implements OnInit {
 
   reserve(){
     let reservation = {
-      reserver: this.loggedInUser.id, // Logged User ID
+      reserver: this.loggedInUser.sub, // Logged User ID
       queue: "" // The queue ID
     }
+    console.log("this.loggedInUser!", this.loggedInUser)
 
     let isQueuesCountMoreThanOne = this.checkQueues()
 
@@ -43,7 +44,7 @@ export class ServiceProviderCardComponent implements OnInit {
       reservation.queue = this.queues[0].id // getting the ID of the only element in the array
 
       this.profileService.reserve(reservation).subscribe((res: ReservingResponse) => {
-        this.router.navigate(["/in-queue"], {queryParams:{reservationId: res.data._id}})
+        this.router.navigate(["/in-queue"], {queryParams:{reservationId: res.data.id}})
       })
     }
 
