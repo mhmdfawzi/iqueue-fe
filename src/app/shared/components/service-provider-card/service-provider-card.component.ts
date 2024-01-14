@@ -27,27 +27,38 @@ export class ServiceProviderCardComponent implements OnInit {
 
   reserve(){
     let reservation = {
-      reserver: this.loggedInUser.sub, // Logged User ID
-      queue: "" // The queue ID
+      reserverId: this.loggedInUser.sub, // Logged User ID
+      queueId: "" // The queue ID
     }
     console.log("this.loggedInUser!", this.loggedInUser)
 
-    let isQueuesCountMoreThanOne = this.checkQueues()
+    let moreThanOneQueue = this.checkQueues()
 
-    if(isQueuesCountMoreThanOne){
+    let queue: Queue;
 
+    if(moreThanOneQueue){
+
+      queue = this.queues.reduce((minQueue, currentQueue) => {
+        if (!minQueue || currentQueue.bookCount < minQueue.bookCount) {
+          // If minQueue is not set or the current queue has fewer bookCount
+          return currentQueue;
+        } else {
+          // Otherwise, return the existing minQueue
+          return minQueue;
+        }
+      })
+
+      reservation.queueId = queue.id
       // Nav to queues view
 
       // console.log("Has many queues , where to go !")
 
     }else{
-      reservation.queue = this.queues[0].id // getting the ID of the only element in the array
-
-      this.profileService.reserve(reservation).subscribe((res: ReservingResponse) => {
-        this.router.navigate(["/in-queue"], {queryParams:{reservationId: res.data.id}})
-      })
+      reservation.queueId = this.queues[0].id // getting the ID of the only element in the array
     }
-
+    this.profileService.reserve(reservation).subscribe((res: ReservingResponse) => {
+      this.router.navigate(["/in-queue"], {queryParams:{reservationId: res.data.id}})
+    })
   }
 
   checkQueues(): boolean{ // Check queues, if one queue => reserve in it, if multible then make user choose

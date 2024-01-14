@@ -5,8 +5,8 @@ import { Queue, ReservationDetails, ReservingDetails } from '../models/interface
 import { Observable } from 'rxjs';
 
 interface ReserverModel{
-  reserver: string,
-  queue: string
+  reserverId: string,
+  queueId: string
 }
 
 interface TaburHttpRes {
@@ -62,7 +62,7 @@ export class ProfileService {
   }
 
   reserve(reserverData: ReserverModel): Observable<ReservingResponse>{
-    return this.generalService.postAPIData<ReservingResponse>(`${environment.apiUrl}reservations`, reserverData)
+    return this.generalService.postAPIData<ReservingResponse>(`${environment.apiUrl}reservation`, reserverData)
   }
 
   reservationDetails(id: string): Observable<ReservationResponse>{
